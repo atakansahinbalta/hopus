@@ -16,6 +16,8 @@
 "%@ is enabled" = "%@ is enabled";
 "%@ is not installed." = "%@ is not installed.";
 "%@ items" = "%@ items";
+"%@ links" = "%@ links";
+"%@ links could not be checked." = "%@ links could not be checked.";
 "%@ photos" = "%@ photos";
 "%@ ready to paste." = "%@ ready to paste.";
 "%@ selected" = "%@ selected";
@@ -45,6 +47,8 @@
 "%lld is enabled" = "%lld is enabled";
 "%lld is not installed." = "%lld is not installed.";
 "%lld items" = "%lld items";
+"%lld links" = "%lld links";
+"%lld links could not be checked." = "%lld links could not be checked.";
 "%lld photos" = "%lld photos";
 "%lld ready to paste." = "%lld ready to paste.";
 "%lld selected" = "%lld selected";
@@ -115,7 +119,6 @@
 "A FRESH START" = "A FRESH START";
 "A GOOD READ, YOUR WAY." = "A GOOD READ, YOUR WAY.";
 "A HAPPIER HOME FOR ALL THE LITTLE FILE JOBS. CONVERT, EDIT, AND SHARE — RIGHT ON YOUR MAC." = "A HAPPIER HOME FOR ALL THE LITTLE FILE JOBS. CONVERT, EDIT, AND SHARE — RIGHT ON YOUR MAC.";
-"A LINK. A FILE. YOURS TO WORK WITH." = "A LINK. A FILE. YOURS TO WORK WITH.";
 "A LITTLE CODE, DECODED." = "A LITTLE CODE, DECODED.";
 "A LITTLE FRESHER. READY WHEN YOU ARE." = "A LITTLE FRESHER. READY WHEN YOU ARE.";
 "A LITTLE LESS FILE FUSS. A LITTLE MORE FLOW." = "A LITTLE LESS FILE FUSS. A LITTLE MORE FLOW.";
@@ -144,7 +147,6 @@
 "A fresh file is on its way…" = "A fresh file is on its way…";
 "A good read, your way." = "A good read, your way.";
 "A happier home for all the little file jobs. Convert, edit, and share — right on your Mac." = "A happier home for all the little file jobs. Convert, edit, and share — right on your Mac.";
-"A link. A file. Yours to work with." = "A link. A file. Yours to work with.";
 "A little code, decoded." = "A little code, decoded.";
 "A little fresher. Ready when you are." = "A little fresher. Ready when you are.";
 "A little less file fuss. A little more flow." = "A little less file fuss. A little more flow.";
@@ -403,6 +405,7 @@
 "CHECK FOR UPDATES AUTOMATICALLY" = "CHECK FOR UPDATES AUTOMATICALLY";
 "CHECK FOR UPDATES…" = "CHECK FOR UPDATES…";
 "CHECK LINK" = "CHECK LINK";
+"CHECK LINKS" = "CHECK LINKS";
 "CHECK SELECTED RANGE" = "CHECK SELECTED RANGE";
 "CHECK YOUR LINK" = "CHECK YOUR LINK";
 "CHECK YOUR SETTINGS" = "CHECK YOUR SETTINGS";
@@ -599,11 +602,16 @@
 "Check for updates" = "Check for updates";
 "Check for updates automatically" = "Check for updates automatically";
 "Check link" = "Check link";
+"Check links" = "Check links";
 "Check selected range" = "Check selected range";
 "Check your link" = "Check your link";
 "Check your settings" = "Check your settings";
 "Checking for a fresh version…" = "Checking for a fresh version…";
 "Checking for updates…" = "Checking for updates…";
+"Checking link %@ of %@…" = "Checking link %@ of %@…";
+"Checking link %@ of %lld…" = "Checking link %@ of %lld…";
+"Checking link %lld of %@…" = "Checking link %lld of %@…";
+"Checking link %lld of %lld…" = "Checking link %lld of %lld…";
 "Checking releases…" = "Checking releases…";
 "Checking the connection…" = "Checking the connection…";
 "Choose 2–100 images for a collage." = "Choose 2–100 images for a collage.";
@@ -831,6 +839,7 @@
 "DOWNLOAD A LINK" = "DOWNLOAD A LINK";
 "DOWNLOAD AUDIO" = "DOWNLOAD AUDIO";
 "DOWNLOAD CANCELLED. NO PARTIAL FILES WERE KEPT." = "DOWNLOAD CANCELLED. NO PARTIAL FILES WERE KEPT.";
+"DOWNLOAD CANCELLED. SAVED FILES WERE KEPT." = "DOWNLOAD CANCELLED. SAVED FILES WERE KEPT.";
 "DOWNLOAD COPIED LINK" = "DOWNLOAD COPIED LINK";
 "DOWNLOAD ENDED EARLY." = "DOWNLOAD ENDED EARLY.";
 "DOWNLOAD EXCEEDED ITS LIMIT." = "DOWNLOAD EXCEEDED ITS LIMIT.";
@@ -909,6 +918,8 @@
 "Documents" = "Documents";
 "Done" = "Done";
 "Download" = "Download";
+"Download %@ links" = "Download %@ links";
+"Download %lld links" = "Download %lld links";
 "Download Audio" = "Download Audio";
 "Download ExifTool (~11 MB) from its official SourceForge distribution? The SHA-256 is checked and it runs locally without an administrator password. Upstream licenses are retained." = "Download ExifTool (~11 MB) from its official SourceForge distribution? The SHA-256 is checked and it runs locally without an administrator password. Upstream licenses are retained.";
 "Download FFmpeg (~180 MB), yt-dlp and Deno directly from their official GitHub releases? SHA-256 hashes are verified before use. FFmpeg is GPL; the other upstream licenses and source links are listed on our Features page. No administrator password is needed." = "Download FFmpeg (~180 MB), yt-dlp and Deno directly from their official GitHub releases? SHA-256 hashes are verified before use. FFmpeg is GPL; the other upstream licenses and source links are listed on our Features page. No administrator password is needed.";
@@ -922,6 +933,7 @@
 "Download a link" = "Download a link";
 "Download audio" = "Download audio";
 "Download cancelled. No partial files were kept." = "Download cancelled. No partial files were kept.";
+"Download cancelled. Saved files were kept." = "Download cancelled. Saved files were kept.";
 "Download copied link" = "Download copied link";
 "Download ended early." = "Download ended early.";
 "Download exceeded its limit." = "Download exceeded its limit.";
@@ -977,6 +989,7 @@
 "Drop it like it’s… a file." = "Drop it like it’s… a file.";
 "Drop something good." = "Drop something good.";
 "Duplicate" = "Duplicate";
+"EACH LINK IS SAVED ON ITS OWN. A FAILED LINK DOES NOT REMOVE FILES ALREADY SAVED." = "EACH LINK IS SAVED ON ITS OWN. A FAILED LINK DOES NOT REMOVE FILES ALREADY SAVED.";
 "EDIT" = "EDIT";
 "EDIT FIELDS OR REMOVE METADATA. ENCODED AUDIO AND VIDEO STAY UNTOUCHED." = "EDIT FIELDS OR REMOVE METADATA. ENCODED AUDIO AND VIDEO STAY UNTOUCHED.";
 "EDIT FIELDS OR REMOVE METADATA. ENCODED IMAGE PIXELS STAY UNTOUCHED." = "EDIT FIELDS OR REMOVE METADATA. ENCODED IMAGE PIXELS STAY UNTOUCHED.";
@@ -1007,6 +1020,7 @@
 "EXPOSURE" = "EXPOSURE";
 "EXTRACT ARCHIVE" = "EXTRACT ARCHIVE";
 "EXTRACT HOPUS INTO ITS OWN WRITABLE FOLDER FIRST." = "EXTRACT HOPUS INTO ITS OWN WRITABLE FOLDER FIRST.";
+"Each link is saved on its own. A failed link does not remove files already saved." = "Each link is saved on its own. A failed link does not remove files already saved.";
 "Edit" = "Edit";
 "Edit Image" = "Edit Image";
 "Edit Photo" = "Edit Photo";
@@ -1440,6 +1454,10 @@
 "Light" = "Light";
 "Lighting" = "Lighting";
 "Line" = "Line";
+"Link %@ of %@" = "Link %@ of %@";
+"Link %@ of %lld" = "Link %@ of %lld";
+"Link %lld of %@" = "Link %lld of %@";
+"Link %lld of %lld" = "Link %lld of %lld";
 "Link ready. Choose a format, then Download." = "Link ready. Choose a format, then Download.";
 "List" = "List";
 "Little tweaks.\nBig difference." = "Little tweaks.\nBig difference.";
@@ -1646,6 +1664,7 @@
 "ON YOUR PC" = "ON YOUR PC";
 "ONE DOWNLOAD PER TOOL GROUP. NO ACCOUNT OR GITHUB TOKEN." = "ONE DOWNLOAD PER TOOL GROUP. NO ACCOUNT OR GITHUB TOKEN.";
 "ONE LAST STEP.\nSET UP YOUR TOOLS." = "ONE LAST STEP.\nSET UP YOUR TOOLS.";
+"ONE LINK OR SEVERAL. EACH FILE STAYS ON YOUR MAC." = "ONE LINK OR SEVERAL. EACH FILE STAYS ON YOUR MAC.";
 "ONE OR MORE MEDIA SETTINGS ARE OUTSIDE THEIR SUPPORTED RANGE." = "ONE OR MORE MEDIA SETTINGS ARE OUTSIDE THEIR SUPPORTED RANGE.";
 "ONE TOOL GROUP IS READY. DOWNLOAD THE REMAINING TOOLS TO FINISH SETUP." = "ONE TOOL GROUP IS READY. DOWNLOAD THE REMAINING TOOLS TO FINISH SETUP.";
 "OPEN" = "OPEN";
@@ -1690,6 +1709,7 @@
 "On your PC" = "On your PC";
 "One download per tool group. No account or GitHub token." = "One download per tool group. No account or GitHub token.";
 "One last step.\nSet up your tools." = "One last step.\nSet up your tools.";
+"One link or several. Each file stays on your Mac." = "One link or several. Each file stays on your Mac.";
 "One or more media settings are outside their supported range." = "One or more media settings are outside their supported range.";
 "One tool group is ready. Download the remaining tools to finish setup." = "One tool group is ready. Download the remaining tools to finish setup.";
 "Open" = "Open";
@@ -1727,9 +1747,12 @@
 "PASTE A PUBLIC MEDIA LINK TO BEGIN." = "PASTE A PUBLIC MEDIA LINK TO BEGIN.";
 "PASTE A PUBLIC VIDEO, IMAGE OR AUDIO PAGE LINK" = "PASTE A PUBLIC VIDEO, IMAGE OR AUDIO PAGE LINK";
 "PASTE A VIDEO SHARE LINK OR IMAGE ADDRESS" = "PASTE A VIDEO SHARE LINK OR IMAGE ADDRESS";
+"PASTE AT MOST 20 LINKS AT A TIME." = "PASTE AT MOST 20 LINKS AT A TIME.";
 "PASTE LINK" = "PASTE LINK";
 "PASTE ONE COMPLETE HTTP:// OR HTTPS:// MEDIA LINK." = "PASTE ONE COMPLETE HTTP:// OR HTTPS:// MEDIA LINK.";
 "PASTE ONE COMPLETE PUBLIC MEDIA LINK." = "PASTE ONE COMPLETE PUBLIC MEDIA LINK.";
+"PASTE ONE LINK PER LINE TO DOWNLOAD THEM IN ORDER. A SINGLE INSTAGRAM PHOTO POST STILL OPENS A PHOTO SELECTION. FOR VIDEOS, USE THE SHARE LINK; FOR OTHER PHOTOS, DRAG THE IMAGE OR USE COPY IMAGE ADDRESS. PUBLIC MEDIA ONLY; LOGIN-REQUIRED AND PROTECTED ITEMS MAY BE UNAVAILABLE." = "PASTE ONE LINK PER LINE TO DOWNLOAD THEM IN ORDER. A SINGLE INSTAGRAM PHOTO POST STILL OPENS A PHOTO SELECTION. FOR VIDEOS, USE THE SHARE LINK; FOR OTHER PHOTOS, DRAG THE IMAGE OR USE COPY IMAGE ADDRESS. PUBLIC MEDIA ONLY; LOGIN-REQUIRED AND PROTECTED ITEMS MAY BE UNAVAILABLE.";
+"PASTE ONE OR MORE MEDIA LINKS" = "PASTE ONE OR MORE MEDIA LINKS";
 "PASTE YOUR GITHUB TOKEN" = "PASTE YOUR GITHUB TOKEN";
 "PASTED FILES" = "PASTED FILES";
 "PASTED IMAGE" = "PASTED IMAGE";
@@ -1771,6 +1794,7 @@
 "POSITION X" = "POSITION X";
 "POSITION Y" = "POSITION Y";
 "PREPARING A LOCAL PREVIEW…" = "PREPARING A LOCAL PREVIEW…";
+"PREPARING A VIDEO YOUR MAC CAN OPEN…" = "PREPARING A VIDEO YOUR MAC CAN OPEN…";
 "PREPARING MEDIA…" = "PREPARING MEDIA…";
 "PREPARING MOVE…" = "PREPARING MOVE…";
 "PREPARING PREVIEW…" = "PREPARING PREVIEW…";
@@ -1815,9 +1839,12 @@
 "Paste a public media link to begin." = "Paste a public media link to begin.";
 "Paste a public video, image or audio page link" = "Paste a public video, image or audio page link";
 "Paste a video share link or image address" = "Paste a video share link or image address";
+"Paste at most 20 links at a time." = "Paste at most 20 links at a time.";
 "Paste link" = "Paste link";
 "Paste one complete http:// or https:// media link." = "Paste one complete http:// or https:// media link.";
 "Paste one complete public media link." = "Paste one complete public media link.";
+"Paste one link per line to download them in order. A single Instagram photo post still opens a photo selection. For videos, use the share link; for other photos, drag the image or use Copy Image Address. Public media only; login-required and protected items may be unavailable." = "Paste one link per line to download them in order. A single Instagram photo post still opens a photo selection. For videos, use the share link; for other photos, drag the image or use Copy Image Address. Public media only; login-required and protected items may be unavailable.";
+"Paste one or more media links" = "Paste one or more media links";
 "Paste your GitHub token" = "Paste your GitHub token";
 "Pasted files" = "Pasted files";
 "Pasted image" = "Pasted image";
@@ -1850,6 +1877,7 @@
 "Preparing %@…" = "Preparing %@…";
 "Preparing %lld…" = "Preparing %lld…";
 "Preparing a local preview…" = "Preparing a local preview…";
+"Preparing a video your Mac can open…" = "Preparing a video your Mac can open…";
 "Preparing media…" = "Preparing media…";
 "Preparing move…" = "Preparing move…";
 "Preparing preview…" = "Preparing preview…";
@@ -2225,7 +2253,11 @@
 "Save to" = "Save to";
 "Save trimmed copy" = "Save trimmed copy";
 "Save with background" = "Save with background";
+"Saved %@ files. %@ links could not be downloaded." = "Saved %@ files. %@ links could not be downloaded.";
+"Saved %@ files. %lld links could not be downloaded." = "Saved %@ files. %lld links could not be downloaded.";
 "Saved %@ new files. Originals kept." = "Saved %@ new files. Originals kept.";
+"Saved %lld files. %@ links could not be downloaded." = "Saved %lld files. %@ links could not be downloaded.";
+"Saved %lld files. %lld links could not be downloaded." = "Saved %lld files. %lld links could not be downloaded.";
 "Saved %lld new files. Originals kept." = "Saved %lld new files. Originals kept.";
 "Saved 1 new file. Originals kept." = "Saved 1 new file. Originals kept.";
 "Saved in post order in a new Instagram folder." = "Saved in post order in a new Instagram folder.";
@@ -2441,6 +2473,7 @@
 "THIS IMAGE IS TOO LARGE TO PASTE. CHOOSE THE IMAGE FILE INSTEAD." = "THIS IMAGE IS TOO LARGE TO PASTE. CHOOSE THE IMAGE FILE INSTEAD.";
 "THIS IS A LIVE OR UPCOMING STREAM. USE A FINISHED VIDEO LINK." = "THIS IS A LIVE OR UPCOMING STREAM. USE A FINISHED VIDEO LINK.";
 "THIS IS NOT A MODERN PAGES DOCUMENT." = "THIS IS NOT A MODERN PAGES DOCUMENT.";
+"THIS LINK COULD NOT BE CHECKED." = "THIS LINK COULD NOT BE CHECKED.";
 "THIS LINK DID NOT RETURN A DOWNLOADABLE IMAGE." = "THIS LINK DID NOT RETURN A DOWNLOADABLE IMAGE.";
 "THIS LINK REQUIRES A LOGIN OR IS RESTRICTED. TRY A PUBLIC SHARE LINK; HOPUS DOES NOT READ YOUR BROWSER SESSIONS." = "THIS LINK REQUIRES A LOGIN OR IS RESTRICTED. TRY A PUBLIC SHARE LINK; HOPUS DOES NOT READ YOUR BROWSER SESSIONS.";
 "THIS MEDIA IS PROTECTED AND CANNOT BE DOWNLOADED HERE." = "THIS MEDIA IS PROTECTED AND CANNOT BE DOWNLOADED HERE.";
@@ -2623,6 +2656,7 @@
 "This image is too large to paste. Choose the image file instead." = "This image is too large to paste. Choose the image file instead.";
 "This is a live or upcoming stream. Use a finished video link." = "This is a live or upcoming stream. Use a finished video link.";
 "This is not a modern Pages document." = "This is not a modern Pages document.";
+"This link could not be checked." = "This link could not be checked.";
 "This link did not return a downloadable image." = "This link did not return a downloadable image.";
 "This link requires a login or is restricted. Try a public share link; Hopus does not read your browser sessions." = "This link requires a login or is restricted. Try a public share link; Hopus does not read your browser sessions.";
 "This media is protected and cannot be downloaded here." = "This media is protected and cannot be downloaded here.";

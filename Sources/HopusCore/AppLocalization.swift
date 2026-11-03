@@ -94,7 +94,7 @@ public enum AppLocalization {
         if source.count > suffix.count, source.hasSuffix(suffix) { return text(String(source.dropLast(suffix.count)), language: language) + suffix }
         // Batch status lines: "File 2 of 5 · <status>" (ConversionEngine.run). A template capture is never translated,
         // so translate the prefix and the status separately.
-        if let prefix = source.range(of: #"^File [0-9]+ of [0-9]+ · "#, options: .regularExpression) {
+        if let prefix = source.range(of: #"^(?:File|Link) [0-9]+ of [0-9]+ · "#, options: .regularExpression) {
             return text(String(source[..<prefix.upperBound].dropLast(3)), language: language) + " · " + text(String(source[prefix.upperBound...]), language: language)
         }
         return templateText(source, table: table) ?? fileMessage(source, language: language, table: table) ?? source

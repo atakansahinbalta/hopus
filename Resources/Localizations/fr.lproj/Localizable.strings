@@ -16,6 +16,8 @@
 "%@ is enabled" = "%@ est activé";
 "%@ is not installed." = "%@ n’est pas installé.";
 "%@ items" = "%@ éléments";
+"%@ links" = "%@ liens";
+"%@ links could not be checked." = "%@ liens n’ont pas pu être vérifiés.";
 "%@ photos" = "%@ photos";
 "%@ ready to paste." = "%@ prêts à coller.";
 "%@ selected" = "%@ sélectionnés";
@@ -45,6 +47,8 @@
 "%lld is enabled" = "%lld est activé";
 "%lld is not installed." = "%lld n’est pas installé.";
 "%lld items" = "%lld éléments";
+"%lld links" = "%lld liens";
+"%lld links could not be checked." = "%lld liens n’ont pas pu être vérifiés.";
 "%lld photos" = "%lld photos";
 "%lld ready to paste." = "%lld prêts à coller.";
 "%lld selected" = "%lld sélectionnés";
@@ -115,7 +119,6 @@
 "A FRESH START" = "UN NOUVEAU DÉPART";
 "A GOOD READ, YOUR WAY." = "UNE BONNE LECTURE, À VOTRE FAÇON.";
 "A HAPPIER HOME FOR ALL THE LITTLE FILE JOBS. CONVERT, EDIT, AND SHARE — RIGHT ON YOUR MAC." = "UN LIEU PLUS AGRÉABLE POUR TOUTES LES PETITES TÂCHES SUR VOS FICHIERS. CONVERTISSEZ, MODIFIEZ ET PARTAGEZ, DIRECTEMENT SUR VOTRE MAC.";
-"A LINK. A FILE. YOURS TO WORK WITH." = "UN LIEN. UN FICHIER. À VOUS D’EN FAIRE CE QUE VOUS VOULEZ.";
 "A LITTLE CODE, DECODED." = "UN PETIT CODE, DÉCODÉ.";
 "A LITTLE FRESHER. READY WHEN YOU ARE." = "UN PEU PLUS FRAIS. PRÊT QUAND VOUS L’ÊTES.";
 "A LITTLE LESS FILE FUSS. A LITTLE MORE FLOW." = "MOINS DE TRACAS AVEC VOS FICHIERS. PLUS DE FLUIDITÉ.";
@@ -144,7 +147,6 @@
 "A fresh file is on its way…" = "Un nouveau fichier arrive…";
 "A good read, your way." = "Une bonne lecture, à votre façon.";
 "A happier home for all the little file jobs. Convert, edit, and share — right on your Mac." = "Un lieu plus agréable pour toutes les petites tâches sur vos fichiers. Convertissez, modifiez et partagez, directement sur votre Mac.";
-"A link. A file. Yours to work with." = "Un lien. Un fichier. À vous d’en faire ce que vous voulez.";
 "A little code, decoded." = "Un petit code, décodé.";
 "A little fresher. Ready when you are." = "Un peu plus frais. Prêt quand vous l’êtes.";
 "A little less file fuss. A little more flow." = "Moins de tracas avec vos fichiers. Plus de fluidité.";
@@ -403,6 +405,7 @@
 "CHECK FOR UPDATES AUTOMATICALLY" = "RECHERCHER AUTOMATIQUEMENT LES MISES À JOUR";
 "CHECK FOR UPDATES…" = "RECHERCHER LES MISES À JOUR…";
 "CHECK LINK" = "VÉRIFIER LE LIEN";
+"CHECK LINKS" = "VÉRIFIER LES LIENS";
 "CHECK SELECTED RANGE" = "VÉRIFIEZ LA PLAGE SÉLECTIONNÉE";
 "CHECK YOUR LINK" = "VÉRIFIEZ VOTRE LIEN";
 "CHECK YOUR SETTINGS" = "VÉRIFIEZ VOS RÉGLAGES";
@@ -599,11 +602,16 @@
 "Check for updates" = "Rechercher les mises à jour";
 "Check for updates automatically" = "Rechercher automatiquement les mises à jour";
 "Check link" = "Vérifier le lien";
+"Check links" = "Vérifier les liens";
 "Check selected range" = "Vérifiez la plage sélectionnée";
 "Check your link" = "Vérifiez votre lien";
 "Check your settings" = "Vérifiez vos réglages";
 "Checking for a fresh version…" = "Recherche d’une nouvelle version…";
 "Checking for updates…" = "Recherche de mises à jour…";
+"Checking link %@ of %@…" = "Vérification du lien %@ sur %@…";
+"Checking link %@ of %lld…" = "Vérification du lien %@ sur %lld…";
+"Checking link %lld of %@…" = "Vérification du lien %lld sur %@…";
+"Checking link %lld of %lld…" = "Vérification du lien %lld sur %lld…";
 "Checking releases…" = "Recherche des versions…";
 "Checking the connection…" = "Vérification de la connexion…";
 "Choose 2–100 images for a collage." = "Choisissez de 2 à 100 images pour un collage.";
@@ -831,6 +839,7 @@
 "DOWNLOAD A LINK" = "TÉLÉCHARGER UN LIEN";
 "DOWNLOAD AUDIO" = "TÉLÉCHARGER L’AUDIO";
 "DOWNLOAD CANCELLED. NO PARTIAL FILES WERE KEPT." = "TÉLÉCHARGEMENT ANNULÉ. AUCUN FICHIER PARTIEL N’A ÉTÉ CONSERVÉ.";
+"DOWNLOAD CANCELLED. SAVED FILES WERE KEPT." = "TÉLÉCHARGEMENT ANNULÉ. LES FICHIERS DÉJÀ ENREGISTRÉS SONT CONSERVÉS.";
 "DOWNLOAD COPIED LINK" = "TÉLÉCHARGER LE LIEN COPIÉ";
 "DOWNLOAD ENDED EARLY." = "LE TÉLÉCHARGEMENT S’EST TERMINÉ PRÉMATURÉMENT.";
 "DOWNLOAD EXCEEDED ITS LIMIT." = "LE TÉLÉCHARGEMENT A DÉPASSÉ SA LIMITE.";
@@ -909,6 +918,8 @@
 "Documents" = "Documents";
 "Done" = "Terminé";
 "Download" = "Télécharger";
+"Download %@ links" = "Télécharger %@ liens";
+"Download %lld links" = "Télécharger %lld liens";
 "Download Audio" = "Télécharger l’audio";
 "Download ExifTool (~11 MB) from its official SourceForge distribution? The SHA-256 is checked and it runs locally without an administrator password. Upstream licenses are retained." = "Télécharger ExifTool (~11 Mo) depuis sa distribution officielle sur SourceForge ? Le SHA-256 est vérifié et l’outil s’exécute en local sans mot de passe administrateur. Les licences amont sont conservées.";
 "Download FFmpeg (~180 MB), yt-dlp and Deno directly from their official GitHub releases? SHA-256 hashes are verified before use. FFmpeg is GPL; the other upstream licenses and source links are listed on our Features page. No administrator password is needed." = "Télécharger FFmpeg (~180 Mo), yt-dlp et Deno directement depuis leurs versions officielles sur GitHub ? Les empreintes SHA-256 sont vérifiées avant utilisation. FFmpeg est sous licence GPL ; les autres licences amont et les liens vers les sources figurent sur notre page des fonctionnalités. Aucun mot de passe administrateur n’est nécessaire.";
@@ -922,6 +933,7 @@
 "Download a link" = "Télécharger un lien";
 "Download audio" = "Télécharger l’audio";
 "Download cancelled. No partial files were kept." = "Téléchargement annulé. Aucun fichier partiel n’a été conservé.";
+"Download cancelled. Saved files were kept." = "Téléchargement annulé. Les fichiers déjà enregistrés sont conservés.";
 "Download copied link" = "Télécharger le lien copié";
 "Download ended early." = "Le téléchargement s’est terminé prématurément.";
 "Download exceeded its limit." = "Le téléchargement a dépassé sa limite.";
@@ -977,6 +989,7 @@
 "Drop it like it’s… a file." = "Déposez-le comme si c’était… un fichier.";
 "Drop something good." = "Déposez quelque chose de bien.";
 "Duplicate" = "Dupliquer";
+"EACH LINK IS SAVED ON ITS OWN. A FAILED LINK DOES NOT REMOVE FILES ALREADY SAVED." = "CHAQUE LIEN EST ENREGISTRÉ SÉPARÉMENT. UN LIEN EN ÉCHEC NE SUPPRIME PAS LES FICHIERS DÉJÀ ENREGISTRÉS.";
 "EDIT" = "ÉDITION";
 "EDIT FIELDS OR REMOVE METADATA. ENCODED AUDIO AND VIDEO STAY UNTOUCHED." = "MODIFIEZ LES CHAMPS OU SUPPRIMEZ LES MÉTADONNÉES. L’AUDIO ET LA VIDÉO ENCODÉS RESTENT INCHANGÉS.";
 "EDIT FIELDS OR REMOVE METADATA. ENCODED IMAGE PIXELS STAY UNTOUCHED." = "MODIFIEZ LES CHAMPS OU SUPPRIMEZ LES MÉTADONNÉES. LES PIXELS ENCODÉS DE L’IMAGE RESTENT INCHANGÉS.";
@@ -1007,6 +1020,7 @@
 "EXPOSURE" = "EXPOSITION";
 "EXTRACT ARCHIVE" = "EXTRAIRE L’ARCHIVE";
 "EXTRACT HOPUS INTO ITS OWN WRITABLE FOLDER FIRST." = "EXTRAYEZ D’ABORD HOPUS DANS SON PROPRE DOSSIER ACCESSIBLE EN ÉCRITURE.";
+"Each link is saved on its own. A failed link does not remove files already saved." = "Chaque lien est enregistré séparément. Un lien en échec ne supprime pas les fichiers déjà enregistrés.";
 "Edit" = "Édition";
 "Edit Image" = "Modifier l’image";
 "Edit Photo" = "Modifier la photo";
@@ -1440,6 +1454,10 @@
 "Light" = "Clair";
 "Lighting" = "Éclairage";
 "Line" = "Ligne";
+"Link %@ of %@" = "Lien %@ sur %@";
+"Link %@ of %lld" = "Lien %@ sur %lld";
+"Link %lld of %@" = "Lien %lld sur %@";
+"Link %lld of %lld" = "Lien %lld sur %lld";
 "Link ready. Choose a format, then Download." = "Lien prêt. Choisissez un format, puis Télécharger.";
 "List" = "Liste";
 "Little tweaks.\nBig difference." = "De petites retouches.\nUne grande différence.";
@@ -1646,6 +1664,7 @@
 "ON YOUR PC" = "SUR VOTRE PC";
 "ONE DOWNLOAD PER TOOL GROUP. NO ACCOUNT OR GITHUB TOKEN." = "UN TÉLÉCHARGEMENT PAR GROUPE D’OUTILS. AUCUN COMPTE NI JETON GITHUB.";
 "ONE LAST STEP.\nSET UP YOUR TOOLS." = "UNE DERNIÈRE ÉTAPE.\nCONFIGUREZ VOS OUTILS.";
+"ONE LINK OR SEVERAL. EACH FILE STAYS ON YOUR MAC." = "UN LIEN OU PLUSIEURS. CHAQUE FICHIER RESTE SUR VOTRE MAC.";
 "ONE OR MORE MEDIA SETTINGS ARE OUTSIDE THEIR SUPPORTED RANGE." = "UN OU PLUSIEURS RÉGLAGES MULTIMÉDIAS SONT EN DEHORS DE LEUR PLAGE PRISE EN CHARGE.";
 "ONE TOOL GROUP IS READY. DOWNLOAD THE REMAINING TOOLS TO FINISH SETUP." = "UN GROUPE D’OUTILS EST PRÊT. TÉLÉCHARGEZ LES OUTILS RESTANTS POUR TERMINER LA CONFIGURATION.";
 "OPEN" = "OUVRIR";
@@ -1690,6 +1709,7 @@
 "On your PC" = "Sur votre PC";
 "One download per tool group. No account or GitHub token." = "Un téléchargement par groupe d’outils. Aucun compte ni jeton GitHub.";
 "One last step.\nSet up your tools." = "Une dernière étape.\nConfigurez vos outils.";
+"One link or several. Each file stays on your Mac." = "Un lien ou plusieurs. Chaque fichier reste sur votre Mac.";
 "One or more media settings are outside their supported range." = "Un ou plusieurs réglages multimédias sont en dehors de leur plage prise en charge.";
 "One tool group is ready. Download the remaining tools to finish setup." = "Un groupe d’outils est prêt. Téléchargez les outils restants pour terminer la configuration.";
 "Open" = "Ouvrir";
@@ -1727,9 +1747,12 @@
 "PASTE A PUBLIC MEDIA LINK TO BEGIN." = "COLLEZ UN LIEN MÉDIA PUBLIC POUR COMMENCER.";
 "PASTE A PUBLIC VIDEO, IMAGE OR AUDIO PAGE LINK" = "COLLEZ LE LIEN D’UNE PAGE PUBLIQUE DE VIDÉO, D’IMAGE OU D’AUDIO";
 "PASTE A VIDEO SHARE LINK OR IMAGE ADDRESS" = "COLLEZ LE LIEN DE PARTAGE D’UNE VIDÉO OU L’ADRESSE D’UNE IMAGE";
+"PASTE AT MOST 20 LINKS AT A TIME." = "COLLEZ 20 LIENS AU MAXIMUM À LA FOIS.";
 "PASTE LINK" = "COLLER LE LIEN";
 "PASTE ONE COMPLETE HTTP:// OR HTTPS:// MEDIA LINK." = "COLLEZ UN LIEN MÉDIA HTTP:// OU HTTPS:// COMPLET.";
 "PASTE ONE COMPLETE PUBLIC MEDIA LINK." = "COLLEZ UN LIEN MÉDIA PUBLIC COMPLET.";
+"PASTE ONE LINK PER LINE TO DOWNLOAD THEM IN ORDER. A SINGLE INSTAGRAM PHOTO POST STILL OPENS A PHOTO SELECTION. FOR VIDEOS, USE THE SHARE LINK; FOR OTHER PHOTOS, DRAG THE IMAGE OR USE COPY IMAGE ADDRESS. PUBLIC MEDIA ONLY; LOGIN-REQUIRED AND PROTECTED ITEMS MAY BE UNAVAILABLE." = "COLLEZ UN LIEN PAR LIGNE POUR LES TÉLÉCHARGER DANS L’ORDRE. UNE SEULE PUBLICATION PHOTO INSTAGRAM OUVRE ENCORE LA SÉLECTION DE PHOTOS. POUR LES VIDÉOS, UTILISEZ LE LIEN DE PARTAGE ; POUR LES AUTRES PHOTOS, FAITES GLISSER L’IMAGE OU UTILISEZ COPIER L’ADRESSE DE L’IMAGE. MÉDIAS PUBLICS UNIQUEMENT ; LES ÉLÉMENTS PROTÉGÉS OU NÉCESSITANT UNE CONNEXION PEUVENT ÊTRE INDISPONIBLES.";
+"PASTE ONE OR MORE MEDIA LINKS" = "COLLEZ UN OU PLUSIEURS LIENS MÉDIA";
 "PASTE YOUR GITHUB TOKEN" = "COLLEZ VOTRE JETON GITHUB";
 "PASTED FILES" = "FICHIERS COLLÉS";
 "PASTED IMAGE" = "IMAGE COLLÉE";
@@ -1771,6 +1794,7 @@
 "POSITION X" = "POSITION X";
 "POSITION Y" = "POSITION Y";
 "PREPARING A LOCAL PREVIEW…" = "PRÉPARATION D’UN APERÇU LOCAL…";
+"PREPARING A VIDEO YOUR MAC CAN OPEN…" = "PRÉPARATION D’UNE VIDÉO LISIBLE SUR MAC…";
 "PREPARING MEDIA…" = "PRÉPARATION DU MÉDIA…";
 "PREPARING MOVE…" = "PRÉPARATION DU DÉPLACEMENT…";
 "PREPARING PREVIEW…" = "PRÉPARATION DE L’APERÇU…";
@@ -1815,9 +1839,12 @@
 "Paste a public media link to begin." = "Collez un lien média public pour commencer.";
 "Paste a public video, image or audio page link" = "Collez le lien d’une page publique de vidéo, d’image ou d’audio";
 "Paste a video share link or image address" = "Collez le lien de partage d’une vidéo ou l’adresse d’une image";
+"Paste at most 20 links at a time." = "Collez 20 liens au maximum à la fois.";
 "Paste link" = "Coller le lien";
 "Paste one complete http:// or https:// media link." = "Collez un lien média http:// ou https:// complet.";
 "Paste one complete public media link." = "Collez un lien média public complet.";
+"Paste one link per line to download them in order. A single Instagram photo post still opens a photo selection. For videos, use the share link; for other photos, drag the image or use Copy Image Address. Public media only; login-required and protected items may be unavailable." = "Collez un lien par ligne pour les télécharger dans l’ordre. Une seule publication photo Instagram ouvre encore la sélection de photos. Pour les vidéos, utilisez le lien de partage ; pour les autres photos, faites glisser l’image ou utilisez Copier l’adresse de l’image. Médias publics uniquement ; les éléments protégés ou nécessitant une connexion peuvent être indisponibles.";
+"Paste one or more media links" = "Collez un ou plusieurs liens média";
 "Paste your GitHub token" = "Collez votre jeton GitHub";
 "Pasted files" = "Fichiers collés";
 "Pasted image" = "Image collée";
@@ -1850,6 +1877,7 @@
 "Preparing %@…" = "Préparation de %@…";
 "Preparing %lld…" = "Préparation de %lld…";
 "Preparing a local preview…" = "Préparation d’un aperçu local…";
+"Preparing a video your Mac can open…" = "Préparation d’une vidéo lisible sur Mac…";
 "Preparing media…" = "Préparation du média…";
 "Preparing move…" = "Préparation du déplacement…";
 "Preparing preview…" = "Préparation de l’aperçu…";
@@ -2225,7 +2253,11 @@
 "Save to" = "Enregistrer dans";
 "Save trimmed copy" = "Enregistrer la copie élaguée";
 "Save with background" = "Enregistrer avec l’arrière-plan";
+"Saved %@ files. %@ links could not be downloaded." = "%@ fichiers enregistrés. %@ liens n’ont pas pu être téléchargés.";
+"Saved %@ files. %lld links could not be downloaded." = "%@ fichiers enregistrés. %lld liens n’ont pas pu être téléchargés.";
 "Saved %@ new files. Originals kept." = "%@ nouveaux fichiers enregistrés. Originaux conservés.";
+"Saved %lld files. %@ links could not be downloaded." = "%lld fichiers enregistrés. %@ liens n’ont pas pu être téléchargés.";
+"Saved %lld files. %lld links could not be downloaded." = "%lld fichiers enregistrés. %lld liens n’ont pas pu être téléchargés.";
 "Saved %lld new files. Originals kept." = "%lld nouveaux fichiers enregistrés. Originaux conservés.";
 "Saved 1 new file. Originals kept." = "1 nouveau fichier enregistré. Originaux conservés.";
 "Saved in post order in a new Instagram folder." = "Enregistrées dans l’ordre de la publication, dans un nouveau dossier Instagram.";
@@ -2441,6 +2473,7 @@
 "THIS IMAGE IS TOO LARGE TO PASTE. CHOOSE THE IMAGE FILE INSTEAD." = "CETTE IMAGE EST TROP GRANDE POUR ÊTRE COLLÉE. CHOISISSEZ PLUTÔT LE FICHIER IMAGE.";
 "THIS IS A LIVE OR UPCOMING STREAM. USE A FINISHED VIDEO LINK." = "IL S’AGIT D’UNE DIFFUSION EN DIRECT OU À VENIR. UTILISEZ LE LIEN D’UNE VIDÉO TERMINÉE.";
 "THIS IS NOT A MODERN PAGES DOCUMENT." = "CE N’EST PAS UN DOCUMENT PAGES MODERNE.";
+"THIS LINK COULD NOT BE CHECKED." = "CE LIEN N’A PAS PU ÊTRE VÉRIFIÉ.";
 "THIS LINK DID NOT RETURN A DOWNLOADABLE IMAGE." = "CE LIEN N’A PAS RENVOYÉ D’IMAGE TÉLÉCHARGEABLE.";
 "THIS LINK REQUIRES A LOGIN OR IS RESTRICTED. TRY A PUBLIC SHARE LINK; HOPUS DOES NOT READ YOUR BROWSER SESSIONS." = "CE LIEN NÉCESSITE UNE CONNEXION OU EST RESTREINT. ESSAYEZ UN LIEN DE PARTAGE PUBLIC ; HOPUS NE LIT PAS VOS SESSIONS DE NAVIGATEUR.";
 "THIS MEDIA IS PROTECTED AND CANNOT BE DOWNLOADED HERE." = "CE MÉDIA EST PROTÉGÉ ET NE PEUT PAS ÊTRE TÉLÉCHARGÉ ICI.";
@@ -2623,6 +2656,7 @@
 "This image is too large to paste. Choose the image file instead." = "Cette image est trop grande pour être collée. Choisissez plutôt le fichier image.";
 "This is a live or upcoming stream. Use a finished video link." = "Il s’agit d’une diffusion en direct ou à venir. Utilisez le lien d’une vidéo terminée.";
 "This is not a modern Pages document." = "Ce n’est pas un document Pages moderne.";
+"This link could not be checked." = "Ce lien n’a pas pu être vérifié.";
 "This link did not return a downloadable image." = "Ce lien n’a pas renvoyé d’image téléchargeable.";
 "This link requires a login or is restricted. Try a public share link; Hopus does not read your browser sessions." = "Ce lien nécessite une connexion ou est restreint. Essayez un lien de partage public ; Hopus ne lit pas vos sessions de navigateur.";
 "This media is protected and cannot be downloaded here." = "Ce média est protégé et ne peut pas être téléchargé ici.";

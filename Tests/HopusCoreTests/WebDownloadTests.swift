@@ -6,6 +6,14 @@ final class WebDownloadTests:XCTestCase {
         for value in ["file:///tmp/a.mp4","javascript:alert(1)","blob:https://example.org/id","https://u:p@example.org/a","https://a.org/a https://b.org/b","https://a.org/a\nb","https://a.org/\tb",""] { XCTAssertThrowsError(try WebDownloadEngine.link(value),value) }
         XCTAssertEqual(try WebDownloadEngine.link("  https://example.org/a?q=a%20b  ").host,"example.org")
     }
+    func testSeveralLinksStayInOrderWithoutRepeatingAnAddress() throws {
+        let urls=try WebDownloadEngine.links(" https://example.org/a \nhttps://example.org/b https://example.org/a ")
+        XCTAssertEqual(urls.map(\.absoluteString),["https://example.org/a","https://example.org/b"])
+        XCTAssertEqual(try WebDownloadEngine.links("  https://example.org/a?q=a%20b  ").map(\.absoluteString),["https://example.org/a?q=a%20b"])
+        XCTAssertThrowsError(try WebDownloadEngine.links("see you tomorrow"))
+        let tooMany=(1...21).map{"https://example.org/v\($0)"}.joined(separator:"\n")
+        XCTAssertThrowsError(try WebDownloadEngine.links(tooMany))
+    }
     func testManifestsAndHTMLAreNotDirectMedia() {
         XCTAssertNil(WebDownloadEngine.directKind(mime:"application/vnd.apple.mpegurl",extension:"m3u8"))
         XCTAssertNil(WebDownloadEngine.directKind(mime:"text/html",extension:"mp4"))

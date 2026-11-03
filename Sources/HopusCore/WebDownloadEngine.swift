@@ -32,6 +32,22 @@ public enum WebDownloadEngine {
         }
         return url
     }
+    /// How many links one paste may queue. Each one is fetched on its own afterwards.
+    public static let maximumLinkCount=20
+    /// One address, or several separated by spaces or new lines. Repeated addresses are kept once, in first-seen order.
+    public static func links(_ text:String) throws -> [URL] {
+        let trimmed=text.trimmingCharacters(in:.whitespacesAndNewlines)
+        if let only=try? link(trimmed) { return [only] }
+        var urls:[URL]=[],seen=Set<String>()
+        for piece in trimmed.split(whereSeparator:\.isWhitespace) {
+            let value=piece.trimmingCharacters(in:CharacterSet(charactersIn:"<>\"'"))
+            guard let url=try? link(value),seen.insert(url.absoluteString).inserted else { continue }
+            urls.append(url)
+        }
+        guard !urls.isEmpty else { throw HopusError.invalidInput("Paste one complete http:// or https:// media link.") }
+        guard urls.count<=maximumLinkCount else { throw HopusError.invalidInput("Paste at most 20 links at a time.") }
+        return urls
+    }
     public static func inspect(_ url:URL,token:CancellationToken = .init()) async throws -> WebMediaInfo {
         let url=try link(url.absoluteString);try token.check()
         let session=URLSession(configuration:.ephemeral)
@@ -113,9 +129,13 @@ public enum WebDownloadEngine {
         try Task.checkCancellation();try token.check()
         // Confine the reported paths to staging before the size fit replaces them.
         try transaction.record(results,in:area)
-        if mode == .video,let maximumHeight {
+        if mode == .video {
             try await Task.detached {
-                try enforceVideoHeight(results,maximum:maximumHeight,directory:area.directory,token:token,progress:progress)
+                if let maximumHeight {
+                    try enforceVideoHeight(results,maximum:maximumHeight,directory:area.directory,token:token,progress:progress)
+                }
+                // Sites often hand back VP9 inside an MP4. QuickTime opens H.264, HEVC, and AAC in MP4.
+                try makeMacPlayable(results,directory:area.directory,token:token,progress:progress)
             }.value
         }
         progress(OperationProgress.indeterminate,"Finishing your file…")
@@ -144,6 +164,39 @@ public enum WebDownloadEngine {
         }
     }
 
+    /// Codecs QuickTime plays from an MP4 without an extra player.
+    static let macPlayableVideoCodecs: Set<String> = ["h264", "hevc", "mpeg4", "prores", "mjpeg"]
+    static let macPlayableAudioCodecs: Set<String> = ["aac", "alac", "mp3", "ac3"]
+
+    static func needsMacPlayerConversion(_ file: URL, media: MediaInfo) -> Bool {
+        guard let video = media.video else { return false }
+        let container = ["mp4", "m4v", "mov"].contains(file.pathExtension.lowercased())
+        let videoReady = macPlayableVideoCodecs.contains(video.codec.lowercased())
+        let audioReady = media.audio.map { macPlayableAudioCodecs.contains($0.codec.lowercased()) } ?? true
+        return !container || !videoReady || !audioReady
+    }
+
+    static func makeMacPlayable(_ files: [URL], directory: URL, token: CancellationToken, progress: @escaping ProgressHandler) throws {
+        for file in files {
+            try token.check()
+            let media = try MediaEngine.inspect(file, token: token)
+            guard needsMacPlayerConversion(file, media: media) else { continue }
+            progress(OperationProgress.indeterminate, "Preparing a video your Mac can open…")
+            var options = OperationOptions()
+            options.outputDirectory = directory
+            let converted = try MediaEngine.convert(file, to: "mp4", options: options, token: token, progress: { value, _ in
+                progress(value, "Preparing a video your Mac can open…")
+            })
+            guard converted.count == 1, let replacement = converted.first,
+                  let output = try? MediaEngine.inspect(replacement, token: token).video?.codec.lowercased(),
+                  macPlayableVideoCodecs.contains(output) else {
+                throw HopusError.failed("The video could not be prepared for the Mac player.")
+            }
+            try token.check()
+            _ = try FileManager.default.replaceItemAt(file, withItemAt: replacement)
+        }
+    }
+
     static func baseArguments(photoPost:Bool=false) throws -> [String] {
         ["--ignore-config","--no-plugin-dirs","--no-update","--no-cache-dir","--no-remote-components",
          "--no-js-runtimes","--js-runtimes","deno:\(try Dependencies.executable("deno").path)",
@@ -164,7 +217,9 @@ public enum WebDownloadEngine {
         case .audioMP3:args += ["--format","bestaudio/best","--extract-audio","--audio-format","mp3","--audio-quality","0"]
         case .video:
             let limit=maximumHeight.map{"[height<=?\($0)]"} ?? ""
-            args += ["--format","bestvideo[ext=mp4]\(limit)+bestaudio[ext=m4a]/best[ext=mp4]\(limit)/bestvideo\(limit)+bestaudio/best\(limit)","--merge-output-format","mp4","--remux-video","mp4"]
+            // Prefer a codec QuickTime already plays. VP9 and AV1 still fall through and are re-encoded afterwards.
+            let playable="bestvideo[vcodec^=avc][ext=mp4]\(limit)+bestaudio[ext=m4a]/bestvideo[vcodec^=hev][ext=mp4]\(limit)+bestaudio[ext=m4a]/bestvideo[vcodec^=hvc][ext=mp4]\(limit)+bestaudio[ext=m4a]/best[vcodec^=avc][ext=mp4]\(limit)/best[vcodec^=hev][ext=mp4]\(limit)/best[vcodec^=hvc][ext=mp4]\(limit)/"
+            args += ["--format",playable+"bestvideo[ext=mp4]\(limit)+bestaudio[ext=m4a]/best[ext=mp4]\(limit)/bestvideo\(limit)+bestaudio/best\(limit)","--merge-output-format","mp4","--remux-video","mp4"]
         case .original:args += ["--format","bestaudio/best"]
         }
         return args+["--",info.url.absoluteString]
