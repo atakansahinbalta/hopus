@@ -90,7 +90,7 @@ struct ToolEditor:View {
     var category:FileCategory { input.map(FileCategory.detect) ?? .other }
     var isGIFMetadata:Bool { input?.pathExtension.lowercased()=="gif" }
     var usesImageMetadata:Bool { category == .image || isGIFMetadata }
-    var visual:Bool { [.editImage,.annotateImage,.cropImage,.frameImage,.redactImage,.createCollage].contains(tool) }
+    var visual:Bool { [.editImage,.annotateImage,.cropImage,.frameImage,.redactImage,.createCollage,.removeBackground].contains(tool) }
     var video:Bool { category == .video && ![.removeMetadata,.compress,.joinVideos].contains(tool) }
     var audio:Bool { category == .audio && tool != .removeMetadata && tool != .compress }
     var sideBySide:Bool { visual || video || audio }
@@ -148,7 +148,7 @@ struct ToolEditor:View {
         }.frame(minWidth:sideBySide ? 900:480,minHeight:420).background(HopusPalette.canvas).tint(.hopus).buttonStyle(HopusButtonStyle(.secondary,compact:true)).textFieldStyle(.roundedBorder)
             .uiAuditStatus(isLoading ? "loading":readyToApply ? "ready":"failed: "+(previewError ?? "Input did not become ready"))
             .hopusAnimation(value:state.working).task(id:loadRevision) { await load() }
-            .task(id:previewKey) { await renderPreview() }
+            .task(id:previewTaskID) { await renderPreview() }
             .task(id:visualizationKey) { await renderVisualization() }
             .onChange(of:previewKey) { _ in if processedPlayback { playOriginal(play:false) } }
             .background(WindowIdentityReader { ownerWindowID=$0 })
@@ -171,6 +171,7 @@ struct ToolEditor:View {
         case .editImage:return "Little tweaks. A whole new look."
         case .annotateImage:return "Make your point."
         case .frameImage:return "Give it a little breathing room."
+        case .removeBackground:return "Lift the subject. Keep a transparent PNG."
         case .compress:return "Make some space. Keep what matters."
         case .removeMetadata:return "Choose what your file shares."
         case .createCollage:return "Better together."
@@ -183,6 +184,7 @@ struct ToolEditor:View {
         case .editImage:return "Save edited copy"
         case .annotateImage:return "Save annotated copy"
         case .frameImage:return "Save with background"
+        case .removeBackground:return "Save without background"
         case .redactImage,.redactVideo:return "Save redacted copy"
         case .redactAudio:return options.audioMode == "bleep" ? "Save bleeped copy":"Save muted copy"
         case .audioToVideo:return "Create visualization"
@@ -221,6 +223,12 @@ struct ToolEditor:View {
         case .editImage: imageControls
         case .annotateImage: annotationControls
         case .frameImage: frameControls
+        case .removeBackground:
+            VStack(alignment:.leading,spacing:12) {
+                Toggle("Show Original",isOn:$showOriginal).toggleStyle(.button)
+                Text("The subject stays. Empty areas stay transparent, and the copy is saved as PNG.").font(.caption).foregroundStyle(.secondary).fixedSize(horizontal:false,vertical:true)
+                Text("The checkerboard is empty. It is not part of the saved file.").font(.caption).foregroundStyle(.secondary).fixedSize(horizontal:false,vertical:true)
+            }
         case .createCollage: collageControls
         case .redactImage,.redactVideo: redactionControls
         case .trimVideo,.trimAudio: trimControls
@@ -501,12 +509,20 @@ struct ToolEditor:View {
     var metadataGroups:[String] { Array(Set(visibleMetadata.map(metadataGroup))).sorted() }
     func metadataGroup(_ key:String)->String { if let separator=key.firstIndex(of:category == .image ? ".":":") { return String(key[..<separator]) };return category == .pdf ? "Document":"File" }
     var imagePreview:some View {
-        ImageEditPreview(image:showOriginal ? baseImage.map{NSImage(cgImage:$0,size:.zero)}:image,imageSize:showOriginal ? imageSize:(previewSize ?? imageSize),crop:tool == .cropImage ? options.crop:nil,redactions:options.redactions,annotations:options.imageAnnotations,redactionColor:Color(cgColor:ImageEngine.color(options.backgroundColor).copy(alpha:1)!),zoom:previewZoom,onStroke:tool == .annotateImage && !selectingAnnotations ? addAnnotation:nil,onMoveAnnotation:{i,r,points in options.imageAnnotations[i].rect=r;options.imageAnnotations[i].points=points},onMoveRedaction:{i,r in options.redactions[i]=r},onMoveCrop:{r in setCrop(r)},cropEnabled:tool == .cropImage,cropAspectRatio:cropAspectRatio,onCropInteraction:cropInteraction,annotationStyle:tool == .annotateImage ? annotationStyle:nil,annotationSource:baseImage,selectAnnotations:selectingAnnotations) { rect in
-            switch tool {
-            case .cropImage: setCrop(rect)
-            case .redactImage: options.redactions.append(rect)
-            case .annotateImage: break
-            default: break
+        ZStack {
+            ImageEditPreview(image:showOriginal ? baseImage.map{NSImage(cgImage:$0,size:.zero)}:image,imageSize:showOriginal ? imageSize:(previewSize ?? imageSize),crop:tool == .cropImage ? options.crop:nil,redactions:options.redactions,annotations:options.imageAnnotations,redactionColor:Color(cgColor:ImageEngine.color(options.backgroundColor).copy(alpha:1)!),zoom:previewZoom,onStroke:tool == .annotateImage && !selectingAnnotations ? addAnnotation:nil,onMoveAnnotation:{i,r,points in options.imageAnnotations[i].rect=r;options.imageAnnotations[i].points=points},onMoveRedaction:{i,r in options.redactions[i]=r},onMoveCrop:{r in setCrop(r)},cropEnabled:tool == .cropImage,cropAspectRatio:cropAspectRatio,onCropInteraction:cropInteraction,annotationStyle:tool == .annotateImage ? annotationStyle:nil,annotationSource:baseImage,selectAnnotations:selectingAnnotations,showsTransparency:tool == .removeBackground && !showOriginal) { rect in
+                switch tool {
+                case .cropImage: setCrop(rect)
+                case .redactImage: options.redactions.append(rect)
+                case .annotateImage: break
+                default: break
+                }
+            }
+            if tool == .removeBackground,!showOriginal,image == nil,previewError == nil {
+                VStack(spacing:8) {
+                    ProgressView().controlSize(.regular).tint(.white)
+                    Text("Removing background…").font(.system(size:13,weight:.semibold)).foregroundStyle(.white)
+                }.padding(.horizontal,16).padding(.vertical,12).background(Color.black.opacity(0.82),in:RoundedRectangle(cornerRadius:12,style:.continuous))
             }
         }.frame(height:420).background(Color.black.opacity(0.94)).cornerRadius(20)
     }
@@ -584,7 +600,7 @@ struct ToolEditor:View {
             if category == .image {
                 let cg=try await Task.detached { try ImageEngine.load(input) }.value
                 try checkGeneration(generation,token:token)
-                baseImage=cg;image=NSImage(cgImage:cg,size:.zero);imageSize=CGSize(width:cg.width,height:cg.height);width=cg.width;height=cg.height
+                baseImage=cg;image=tool == .removeBackground ? nil:NSImage(cgImage:cg,size:.zero);imageSize=CGSize(width:cg.width,height:cg.height);width=cg.width;height=cg.height
                 if tool == .compress { setCompressionDimensions(compressionSize) }
             }
             if category == .audio || category == .video {
@@ -697,6 +713,8 @@ struct ToolEditor:View {
         } catch { if generation==editorGeneration,!token.isCancelled { previewError=error.localizedDescription } } }
     }
     var previewKey:Data { let encoder=JSONEncoder();encoder.outputFormatting = .sortedKeys;var data=(try? encoder.encode(options)) ?? Data();data.append(contentsOf:inputs.map(\.path).joined(separator:"\0").utf8);return data }
+    /// The preview must start again once the photo exists. A pass that begins before load finishes would otherwise stop and leave the spinner up.
+    var previewTaskID:Data { var data=previewKey;data.append(baseImage == nil ? 0:1);return data }
     func renderPreview() async {
         guard let baseImage,visual,tool != .cropImage else { return }
         let generation=editorGeneration,token=previewToken
@@ -705,9 +723,17 @@ struct ToolEditor:View {
             var o=options
             if tool == .redactImage { var r=o.imageRedaction ?? .init();r.style=o.redactionMode=="black" ? .solid:o.redactionMode=="pixelate" ? .pixelate:.blur;r.color=o.backgroundColor;o.imageRedaction=r }
             let kind=tool,sources=inputs
-            let cg=try await Task.detached { if kind == .createCollage { return try ImageEngine.collageImage(sources.map{try ImageEngine.load($0)},settings:o.collage ?? .init()) };return try ImageEngine.preview(baseImage,tool:kind,options:o) }.value
+            let work=Task.detached {
+                if kind == .createCollage { return try ImageEngine.collageImage(sources.map{try ImageEngine.load($0)},settings:o.collage ?? .init()) }
+                let source=kind == .removeBackground ? try ImageEngine.fitted(baseImage,longest:1600):baseImage
+                return try ImageEngine.preview(source,tool:kind,options:o)
+            }
+            let cg=try await withTaskCancellationHandler { try await work.value } onCancel:{ work.cancel() }
             try checkGeneration(generation,token:token);image=NSImage(cgImage:cg,size:.zero);previewSize=CGSize(width:cg.width,height:cg.height)
-        } catch { /* A later edit cancels an obsolete preview; Apply reports export errors. */ }
+        } catch {
+            // A later edit cancels an obsolete preview. A failed cutout must not keep looking like the original photo.
+            if generation==editorGeneration,!token.isCancelled,tool == .removeBackground,!(error is CancellationError) { previewError=error.localizedDescription }
+        }
     }
     var annotationStyle:ImageAnnotation {
         var a=ImageAnnotation(kind:annotationKind,rect:.init(x:0,y:0,width:0,height:0));a.text=annotationText;a.color=hex(annotationColor);a.number=options.imageAnnotations.count+1;a.strokeWidth=annotationStroke;a.fontSize=annotationFont;a.fontFamily=annotationFontFamily

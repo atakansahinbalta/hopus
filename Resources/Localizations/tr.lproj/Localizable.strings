@@ -1419,6 +1419,7 @@
 "LIBRARY IS TOO LARGE." = "KİTAPLIK ÇOK BÜYÜK.";
 "LIBREOFFICE 26.8.1 ENABLES OFFICE DOCUMENT CONVERSIONS. A 285 MB DOWNLOAD; ABOUT 1 GB INSTALLED. MPL 2.0 AND ITS INCLUDED THIRD-PARTY LICENSES." = "LIBREOFFICE 26.8.1, OFFICE BELGELERİNİ DÖNÜŞTÜRMEYİ SAĞLAR. İNDİRME 285 MB; KURULUM YAKLAŞIK 1 GB. MPL 2.0 VE İÇERDİĞİ ÜÇÜNCÜ TARAF LİSANSLARI GEÇERLİDİR.";
 "LIBREOFFICE 26.8.1 ENABLES OFFICE DOCUMENT CONVERSIONS. APPROXIMATELY 360 MB TO DOWNLOAD. MPL 2.0 AND ITS INCLUDED THIRD-PARTY LICENSES." = "LIBREOFFICE 26.8.1, OFFICE BELGELERİNİ DÖNÜŞTÜRMEYİ SAĞLAR. İNDİRME YAKLAŞIK 360 MB. MPL 2.0 VE İÇERDİĞİ ÜÇÜNCÜ TARAF LİSANSLARI GEÇERLİDİR.";
+"LIFT THE SUBJECT. KEEP A TRANSPARENT PNG." = "KONUYU AYIR. SAYDAM BİR PNG KALSIN.";
 "LIGHT" = "AÇIK";
 "LIGHTING" = "IŞIK";
 "LINE" = "ÇİZGİ";
@@ -1451,6 +1452,7 @@
 "Library is too large." = "Kitaplık çok büyük.";
 "LibreOffice 26.8.1 enables Office document conversions. A 285 MB download; about 1 GB installed. MPL 2.0 and its included third-party licenses." = "LibreOffice 26.8.1, Office belgelerini dönüştürmeyi sağlar. İndirme 285 MB; kurulum yaklaşık 1 GB. MPL 2.0 ve içerdiği üçüncü taraf lisansları geçerlidir.";
 "LibreOffice 26.8.1 enables Office document conversions. Approximately 360 MB to download. MPL 2.0 and its included third-party licenses." = "LibreOffice 26.8.1, Office belgelerini dönüştürmeyi sağlar. İndirme yaklaşık 360 MB. MPL 2.0 ve içerdiği üçüncü taraf lisansları geçerlidir.";
+"Lift the subject. Keep a transparent PNG." = "Konuyu ayır. Saydam bir PNG kalsın.";
 "Light" = "Açık";
 "Lighting" = "Işık";
 "Line" = "Çizgi";
@@ -1585,6 +1587,7 @@
 "NO QR CODES FOUND. TRY A LARGER OR SHARPER IMAGE." = "QR KODU BULUNAMADI. DAHA BÜYÜK VEYA DAHA NET BİR GÖRSEL DENE.";
 "NO QR CODES THIS TIME." = "QR KODU BULUNAMADI.";
 "NO READABLE TEXT WAS FOUND IN THIS TEXT CLIPPING." = "BU METİN KIRPINTISINDA OKUNABİLİR METİN BULUNAMADI.";
+"NO SUBJECT WAS FOUND IN THIS IMAGE." = "BU GÖRSELDE AYRILACAK BİR KONU BULUNAMADI.";
 "NO TEXT COULD BE EXTRACTED OR RECOGNIZED IN THIS PDF." = "BU PDF'DEN METİN ÇIKARILAMADI VEYA TANINAMADI.";
 "NO TIMED SUBTITLE CUES WERE FOUND IN THIS FILE." = "BU DOSYADA ZAMANLANMIŞ ALTYAZI SATIRI BULUNAMADI.";
 "NO TIMED SUBTITLE CUES WERE FOUND." = "ZAMANLANMIŞ ALTYAZI SATIRI BULUNAMADI.";
@@ -1633,6 +1636,7 @@
 "No output was produced." = "Çıktı oluşmadı.";
 "No public downloadable media found. Some sites require sign-in or do not expose downloadable media." = "Herkese açık, indirilebilir medya bulunamadı. Bazı siteler giriş gerektirir veya medyayı indirmeye açmaz.";
 "No readable text was found in this text clipping." = "Bu metin kırpıntısında okunabilir metin bulunamadı.";
+"No subject was found in this image." = "Bu görselde ayrılacak bir konu bulunamadı.";
 "No text could be extracted or recognized in this PDF." = "Bu PDF'den metin çıkarılamadı veya tanınamadı.";
 "No timed subtitle cues were found in this file." = "Bu dosyada zamanlanmış altyazı satırı bulunamadı.";
 "No timed subtitle cues were found." = "Zamanlanmış altyazı satırı bulunamadı.";
@@ -1960,6 +1964,9 @@
 "REMOVE ALL METADATA" = "TÜM META VERİLERİ KALDIR";
 "REMOVE AUDIO" = "SESİ KALDIR";
 "REMOVE BACKGROUND" = "ARKA PLANI KALDIR";
+"REMOVE BACKGROUND IS AVAILABLE IN THE MAC APP." = "ARKA PLAN KALDIRMA MAC UYGULAMASINDA VAR.";
+"REMOVE BACKGROUND NEEDS MACOS 14 OR LATER." = "ARKA PLAN KALDIRMA İÇİN MACOS 14 VEYA DAHA YENİSİ GEREKİR.";
+"REMOVE BG" = "ARKA PLANI KALDIR";
 "REMOVE CLIPS (NUMBERS; SEPARATED BY SEMICOLONS)" = "ÇIKARILACAK KLİPLER (NUMARA; NOKTALI VİRGÜLLE AYIR)";
 "REMOVE FROM FLOAT" = "YÜZEN PENCEREDEN KALDIR";
 "REMOVE FROM SELECTION" = "SEÇİMDEN KALDIR";
@@ -1969,6 +1976,7 @@
 "REMOVE SELECTED RANGE" = "SEÇİLİ ARALIĞI KALDIR";
 "REMOVE SILENCE AT THE BEGINNING AND END" = "BAŞLANGIÇ VE SONDAKİ SESSİZLİĞİ KALDIR";
 "REMOVE SILENCE FROM BEGINNING AND END" = "BAŞLANGIÇ VE SONDAKİ SESSİZLİĞİ KALDIR";
+"REMOVING BACKGROUND…" = "ARKA PLAN KALDIRILIYOR…";
 "RENDERED PAGES EXCEED 512 MB. CHOOSE A LOWER DPI OR SPLIT THE PDF FIRST." = "OLUŞTURULAN SAYFALAR 512 MB'I AŞIYOR. DAHA DÜŞÜK BİR DPI SEÇ VEYA ÖNCE PDF'Yİ BÖL.";
 "REPLACE SELECTED AUDIO WITH" = "SEÇİLİ SESİ ŞUNUNLA DEĞİŞTİR";
 "REPORT SAVED." = "RAPOR KAYDEDİLDİ.";
@@ -2031,7 +2039,10 @@
 "Remove %lld from selection" = "%lld öğesini seçimden kaldır";
 "Remove All" = "Tümünü Kaldır";
 "Remove Audio" = "Sesi Kaldır";
+"Remove BG" = "Arka Planı Kaldır";
 "Remove Background" = "Arka Planı Kaldır";
+"Remove Background is available in the Mac app." = "Arka plan kaldırma Mac uygulamasında var.";
+"Remove Background needs macOS 14 or later." = "Arka plan kaldırma için macOS 14 veya daha yenisi gerekir.";
 "Remove Image" = "Görseli Kaldır";
 "Remove Metadata" = "Meta Verileri Kaldır";
 "Remove all metadata" = "Tüm meta verileri kaldır";
@@ -2042,6 +2053,7 @@
 "Remove selected range" = "Seçili aralığı kaldır";
 "Remove silence at the beginning and end" = "Başlangıç ve sondaki sessizliği kaldır";
 "Remove silence from beginning and end" = "Başlangıç ve sondaki sessizliği kaldır";
+"Removing background…" = "Arka plan kaldırılıyor…";
 "Rendered pages exceed 512 MB. Choose a lower DPI or split the PDF first." = "Oluşturulan sayfalar 512 MB'ı aşıyor. Daha düşük bir DPI seç veya önce PDF'yi böl.";
 "Rendering page %@" = "Sayfa %@ işleniyor";
 "Rendering page %lld" = "Sayfa %lld işleniyor";
@@ -2102,6 +2114,7 @@
 "SAVE TO" = "KAYIT YERİ";
 "SAVE TRIMMED COPY" = "KIRPILMIŞ KOPYAYI KAYDET";
 "SAVE WITH BACKGROUND" = "ARKA PLANLA KAYDET";
+"SAVE WITHOUT BACKGROUND" = "ARKA PLANSIZ KAYDET";
 "SAVED 1 NEW FILE. ORIGINALS KEPT." = "1 YENİ DOSYA KAYDEDİLDİ. ORİJİNAL KORUNDU.";
 "SAVED IN POST ORDER IN A NEW INSTAGRAM FOLDER." = "GÖNDERİ SIRASIYLA YENİ BİR INSTAGRAM KLASÖRÜNE KAYDEDİLİR.";
 "SAVED TOKEN · LEAVE BLANK TO KEEP IT" = "KAYITLI TOKEN · KORUMAK İÇİN BOŞ BIRAK";
@@ -2253,6 +2266,7 @@
 "Save to" = "Kayıt yeri";
 "Save trimmed copy" = "Kırpılmış kopyayı kaydet";
 "Save with background" = "Arka planla kaydet";
+"Save without background" = "Arka plansız kaydet";
 "Saved %@ files. %@ links could not be downloaded." = "%@ dosya kaydedildi. %@ bağlantı indirilemedi.";
 "Saved %@ files. %lld links could not be downloaded." = "%@ dosya kaydedildi. %lld bağlantı indirilemedi.";
 "Saved %@ new files. Originals kept." = "%@ yeni dosya kaydedildi. Orijinaller korundu.";
@@ -2409,6 +2423,8 @@
 "THE ARCHIVE ENTRY LEAVES ITS DESTINATION." = "ARŞİVDEKİ BİR ÖĞE HEDEF KLASÖRÜN DIŞINA ÇIKIYOR.";
 "THE ARCHIVE EXPANDS BEYOND THE 20 GB SAFETY LIMIT." = "ARŞİV AÇILDIĞINDA 20 GB'LIK GÜVENLİK SINIRINI AŞIYOR.";
 "THE ARCHIVE HAS TOO MANY ENTRIES (100,000 LIMIT)." = "ARŞİVDE ÇOK FAZLA ÖĞE VAR (SINIR 100.000).";
+"THE BACKGROUND COULD NOT BE REMOVED." = "ARKA PLAN KALDIRILAMADI.";
+"THE CHECKERBOARD IS EMPTY. IT IS NOT PART OF THE SAVED FILE." = "DAMA BOŞ ALANDIR. KAYITLI DOSYAYA YAZILMAZ.";
 "THE CLIPPING EXCEEDS 200 MB." = "METİN KIRPINTISI 200 MB'I AŞIYOR.";
 "THE CLIPPING HAS NO READABLE TEXT. INCLUDE ITS ORIGINAL RESOURCE FORK/APPLEDOUBLE SIDECAR, OR PASTE ITS TEXT INTO HOPUS." = "METİN KIRPINTISINDA OKUNABİLİR METİN YOK. ORİJİNAL RESOURCE FORK/APPLEDOUBLE DOSYASINI DA EKLE VEYA METNİNİ HOPUS'A YAPIŞTIR.";
 "THE DOCUMENT HAS NO EDITABLE BODY." = "BELGEDE DÜZENLENEBİLİR BİR İÇERİK YOK.";
@@ -2447,6 +2463,7 @@
 "THE SITE IS LIMITING REQUESTS. WAIT A LITTLE AND TRY AGAIN." = "SİTE İSTEKLERİ SINIRLIYOR. BİRAZ BEKLEYİP YENİDEN DENE.";
 "THE SITE RETURNED TOO MUCH METADATA. TRY AN INDIVIDUAL MEDIA LINK." = "SİTE ÇOK FAZLA META VERİ DÖNDÜRDÜ. TEK BİR MEDYANIN BAĞLANTISINI DENE.";
 "THE START AND END TIMES MUST DESCRIBE A NONEMPTY RANGE INSIDE THE MEDIA." = "BAŞLANGIÇ VE BİTİŞ ZAMANLARI MEDYANIN İÇİNDE BOŞ OLMAYAN BİR ARALIK BELİRTMELİ.";
+"THE SUBJECT STAYS. EMPTY AREAS STAY TRANSPARENT, AND THE COPY IS SAVED AS PNG." = "KONU KALIR. BOŞ ALANLAR SAYDAMDIR VE KOPYA PNG OLARAK KAYDEDİLİR.";
 "THE TEXT CLIPPING'S RESOURCE DATA IS DAMAGED." = "METİN KIRPINTISININ KAYNAK VERİSİ BOZUK.";
 "THE UPDATE DOES NOT CONTAIN HOPUS." = "GÜNCELLEME HOPUS'U İÇERMİYOR.";
 "THE UPDATE NEEDS ANOTHER TRY" = "GÜNCELLEMEYİ YENİDEN DENEMEK GEREKİYOR";
@@ -2566,6 +2583,8 @@
 "The archive entry leaves its destination." = "Arşivdeki bir öğe hedef klasörün dışına çıkıyor.";
 "The archive expands beyond the 20 GB safety limit." = "Arşiv açıldığında 20 GB'lık güvenlik sınırını aşıyor.";
 "The archive has too many entries (100,000 limit)." = "Arşivde çok fazla öğe var (sınır 100.000).";
+"The background could not be removed." = "Arka plan kaldırılamadı.";
+"The checkerboard is empty. It is not part of the saved file." = "Dama boş alandır. Kayıtlı dosyaya yazılmaz.";
 "The clipping exceeds 200 MB." = "Metin kırpıntısı 200 MB'ı aşıyor.";
 "The clipping has no readable text. Include its original resource fork/AppleDouble sidecar, or paste its text into Hopus." = "Metin kırpıntısında okunabilir metin yok. Orijinal resource fork/AppleDouble dosyasını da ekle veya metnini Hopus'a yapıştır.";
 "The crop rectangle must fit completely inside the %@ × %@ pixel image." = "Kırpma alanı %@ × %@ piksellik görselin tamamen içinde kalmalı.";
@@ -2611,6 +2630,7 @@
 "The site is limiting requests. Wait a little and try again." = "Site istekleri sınırlıyor. Biraz bekleyip yeniden dene.";
 "The site returned too much metadata. Try an individual media link." = "Site çok fazla meta veri döndürdü. Tek bir medyanın bağlantısını dene.";
 "The start and end times must describe a nonempty range inside the media." = "Başlangıç ve bitiş zamanları medyanın içinde boş olmayan bir aralık belirtmeli.";
+"The subject stays. Empty areas stay transparent, and the copy is saved as PNG." = "Konu kalır. Boş alanlar saydamdır ve kopya PNG olarak kaydedilir.";
 "The text clipping's resource data is damaged." = "Metin kırpıntısının kaynak verisi bozuk.";
 "The text encoding of %@ could not be read." = "%@ dosyasının metin kodlaması okunamadı.";
 "The text encoding of %lld could not be read." = "%lld dosyasının metin kodlaması okunamadı.";

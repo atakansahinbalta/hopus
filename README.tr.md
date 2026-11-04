@@ -20,7 +20,7 @@ Ana ekran, araç çarkı, görsel kırpma ve kırpma aralığı. Görüntüler �
 
 ## İndir ve kullan
 
-- **[macOS ZIP · Apple Silicon, macOS 13+](https://github.com/atakansahinbalta/hopus/releases/latest/download/Hopus-macOS-arm64.zip):** ZIP’i aç, Hopus.app’i Uygulamalar klasörüne taşı ve aç. macOS ilk açılışta onay isterse Hopus’a sağ tıklayıp Aç’ı seç. macOS kataloğu 27 araç, 46 girdi formatı ve 276 dönüşüm yolu içerir.
+- **[macOS ZIP · Apple Silicon, macOS 13+](https://github.com/atakansahinbalta/hopus/releases/latest/download/Hopus-macOS-arm64.zip):** ZIP’i aç, Hopus.app’i Uygulamalar klasörüne taşı ve aç. macOS ilk açılışta onay isterse Hopus’a sağ tıklayıp Aç’ı seç. macOS kataloğu 28 araç, 46 girdi formatı ve 276 dönüşüm yolu içerir.
 - **Windows:** kaynak ve derleme notları [windows/README.md](windows/README.md) içindedir. Bu sürüm Mac uygulamasını yayınlar.
 
 İlk açılışta **Kurulumu tamamla → Eksik araçları indir** akışı Medya ve Office araçlarını sırayla kurar. Bilgisayarında bulunan araçlar yeniden indirilmez; iptal veya hata sonrasında yalnızca eksik gruplarla devam edilir. **Araçlar hazır** durumu iki grup da kullanılabilir olduğunda gösterilir. İndirmeler doğrudan upstream’den gelir; hash’leri kurulumdan önce doğrulanır. Temel yerel görsel/PDF işlemleri hemen çalışır. [Sürümler, hash’ler ve lisanslar](docs/dependencies.md).

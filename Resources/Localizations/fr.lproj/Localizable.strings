@@ -1419,6 +1419,7 @@
 "LIBRARY IS TOO LARGE." = "LA BIBLIOTHÈQUE EST TROP VOLUMINEUSE.";
 "LIBREOFFICE 26.8.1 ENABLES OFFICE DOCUMENT CONVERSIONS. A 285 MB DOWNLOAD; ABOUT 1 GB INSTALLED. MPL 2.0 AND ITS INCLUDED THIRD-PARTY LICENSES." = "LIBREOFFICE 26.8.1 PERMET LES CONVERSIONS DE DOCUMENTS OFFICE. TÉLÉCHARGEMENT DE 285 MO ; ENVIRON 1 GO UNE FOIS INSTALLÉ. MPL 2.0 ET LES LICENCES TIERCES INCLUSES.";
 "LIBREOFFICE 26.8.1 ENABLES OFFICE DOCUMENT CONVERSIONS. APPROXIMATELY 360 MB TO DOWNLOAD. MPL 2.0 AND ITS INCLUDED THIRD-PARTY LICENSES." = "LIBREOFFICE 26.8.1 PERMET LES CONVERSIONS DE DOCUMENTS OFFICE. ENVIRON 360 MO À TÉLÉCHARGER. MPL 2.0 ET LES LICENCES TIERCES INCLUSES.";
+"LIFT THE SUBJECT. KEEP A TRANSPARENT PNG." = "DÉTOUREZ LE SUJET. GARDEZ UN PNG TRANSPARENT.";
 "LIGHT" = "CLAIR";
 "LIGHTING" = "ÉCLAIRAGE";
 "LINE" = "LIGNE";
@@ -1451,6 +1452,7 @@
 "Library is too large." = "La bibliothèque est trop volumineuse.";
 "LibreOffice 26.8.1 enables Office document conversions. A 285 MB download; about 1 GB installed. MPL 2.0 and its included third-party licenses." = "LibreOffice 26.8.1 permet les conversions de documents Office. Téléchargement de 285 Mo ; environ 1 Go une fois installé. MPL 2.0 et les licences tierces incluses.";
 "LibreOffice 26.8.1 enables Office document conversions. Approximately 360 MB to download. MPL 2.0 and its included third-party licenses." = "LibreOffice 26.8.1 permet les conversions de documents Office. Environ 360 Mo à télécharger. MPL 2.0 et les licences tierces incluses.";
+"Lift the subject. Keep a transparent PNG." = "Détourez le sujet. Gardez un PNG transparent.";
 "Light" = "Clair";
 "Lighting" = "Éclairage";
 "Line" = "Ligne";
@@ -1585,6 +1587,7 @@
 "NO QR CODES FOUND. TRY A LARGER OR SHARPER IMAGE." = "AUCUN CODE QR TROUVÉ. ESSAYEZ UNE IMAGE PLUS GRANDE OU PLUS NETTE.";
 "NO QR CODES THIS TIME." = "AUCUN CODE QR CETTE FOIS.";
 "NO READABLE TEXT WAS FOUND IN THIS TEXT CLIPPING." = "AUCUN TEXTE LISIBLE N’A ÉTÉ TROUVÉ DANS CE FRAGMENT.";
+"NO SUBJECT WAS FOUND IN THIS IMAGE." = "AUCUN SUJET N’A ÉTÉ TROUVÉ DANS CETTE IMAGE.";
 "NO TEXT COULD BE EXTRACTED OR RECOGNIZED IN THIS PDF." = "AUCUN TEXTE N’A PU ÊTRE EXTRAIT OU RECONNU DANS CE PDF.";
 "NO TIMED SUBTITLE CUES WERE FOUND IN THIS FILE." = "AUCUNE RÉPLIQUE DE SOUS-TITRE HORODATÉE N’A ÉTÉ TROUVÉE DANS CE FICHIER.";
 "NO TIMED SUBTITLE CUES WERE FOUND." = "AUCUNE RÉPLIQUE DE SOUS-TITRE HORODATÉE N’A ÉTÉ TROUVÉE.";
@@ -1633,6 +1636,7 @@
 "No output was produced." = "Aucune sortie n’a été produite.";
 "No public downloadable media found. Some sites require sign-in or do not expose downloadable media." = "Aucun média public téléchargeable trouvé. Certains sites exigent une connexion ou n’exposent pas de médias téléchargeables.";
 "No readable text was found in this text clipping." = "Aucun texte lisible n’a été trouvé dans ce fragment.";
+"No subject was found in this image." = "Aucun sujet n’a été trouvé dans cette image.";
 "No text could be extracted or recognized in this PDF." = "Aucun texte n’a pu être extrait ou reconnu dans ce PDF.";
 "No timed subtitle cues were found in this file." = "Aucune réplique de sous-titre horodatée n’a été trouvée dans ce fichier.";
 "No timed subtitle cues were found." = "Aucune réplique de sous-titre horodatée n’a été trouvée.";
@@ -1959,7 +1963,10 @@
 "REMOVE ALL" = "TOUT SUPPRIMER";
 "REMOVE ALL METADATA" = "SUPPRIMER TOUTES LES MÉTADONNÉES";
 "REMOVE AUDIO" = "SUPPRIMER L’AUDIO";
-"REMOVE BACKGROUND" = "SUPPRIMER L’ARRIÈRE-PLAN";
+"REMOVE BACKGROUND" = "RETIRER L’ARRIÈRE-PLAN";
+"REMOVE BACKGROUND IS AVAILABLE IN THE MAC APP." = "RETIRER L’ARRIÈRE-PLAN EST DISPONIBLE DANS L’APPLICATION MAC.";
+"REMOVE BACKGROUND NEEDS MACOS 14 OR LATER." = "RETIRER L’ARRIÈRE-PLAN NÉCESSITE MACOS 14 OU UNE VERSION PLUS RÉCENTE.";
+"REMOVE BG" = "RETIRER LE FOND";
 "REMOVE CLIPS (NUMBERS; SEPARATED BY SEMICOLONS)" = "SUPPRIMER DES CLIPS (NUMÉROS ; SÉPARÉS PAR DES POINTS-VIRGULES)";
 "REMOVE FROM FLOAT" = "RETIRER DE FLOAT";
 "REMOVE FROM SELECTION" = "RETIRER DE LA SÉLECTION";
@@ -1969,6 +1976,7 @@
 "REMOVE SELECTED RANGE" = "RETIRER LA PLAGE SÉLECTIONNÉE";
 "REMOVE SILENCE AT THE BEGINNING AND END" = "SUPPRIMER LE SILENCE AU DÉBUT ET À LA FIN";
 "REMOVE SILENCE FROM BEGINNING AND END" = "SUPPRIMER LE SILENCE AU DÉBUT ET À LA FIN";
+"REMOVING BACKGROUND…" = "SUPPRESSION DE L’ARRIÈRE-PLAN…";
 "RENDERED PAGES EXCEED 512 MB. CHOOSE A LOWER DPI OR SPLIT THE PDF FIRST." = "LES PAGES RENDUES DÉPASSENT 512 MO. CHOISISSEZ UN DPI PLUS BAS OU DIVISEZ D’ABORD LE PDF.";
 "REPLACE SELECTED AUDIO WITH" = "REMPLACER L’AUDIO SÉLECTIONNÉ PAR";
 "REPORT SAVED." = "RAPPORT ENREGISTRÉ.";
@@ -2031,7 +2039,10 @@
 "Remove %lld from selection" = "Retirer %lld de la sélection";
 "Remove All" = "Tout supprimer";
 "Remove Audio" = "Supprimer l’audio";
-"Remove Background" = "Supprimer l’arrière-plan";
+"Remove BG" = "Retirer le fond";
+"Remove Background" = "Retirer l’arrière-plan";
+"Remove Background is available in the Mac app." = "Retirer l’arrière-plan est disponible dans l’application Mac.";
+"Remove Background needs macOS 14 or later." = "Retirer l’arrière-plan nécessite macOS 14 ou une version plus récente.";
 "Remove Image" = "Retirer l’image";
 "Remove Metadata" = "Supprimer les métadonnées";
 "Remove all metadata" = "Supprimer toutes les métadonnées";
@@ -2042,6 +2053,7 @@
 "Remove selected range" = "Retirer la plage sélectionnée";
 "Remove silence at the beginning and end" = "Supprimer le silence au début et à la fin";
 "Remove silence from beginning and end" = "Supprimer le silence au début et à la fin";
+"Removing background…" = "Suppression de l’arrière-plan…";
 "Rendered pages exceed 512 MB. Choose a lower DPI or split the PDF first." = "Les pages rendues dépassent 512 Mo. Choisissez un DPI plus bas ou divisez d’abord le PDF.";
 "Rendering page %@" = "Rendu de la page %@";
 "Rendering page %lld" = "Rendu de la page %lld";
@@ -2102,6 +2114,7 @@
 "SAVE TO" = "ENREGISTRER DANS";
 "SAVE TRIMMED COPY" = "ENREGISTRER LA COPIE ÉLAGUÉE";
 "SAVE WITH BACKGROUND" = "ENREGISTRER AVEC L’ARRIÈRE-PLAN";
+"SAVE WITHOUT BACKGROUND" = "ENREGISTRER SANS ARRIÈRE-PLAN";
 "SAVED 1 NEW FILE. ORIGINALS KEPT." = "1 NOUVEAU FICHIER ENREGISTRÉ. ORIGINAUX CONSERVÉS.";
 "SAVED IN POST ORDER IN A NEW INSTAGRAM FOLDER." = "ENREGISTRÉES DANS L’ORDRE DE LA PUBLICATION, DANS UN NOUVEAU DOSSIER INSTAGRAM.";
 "SAVED TOKEN · LEAVE BLANK TO KEEP IT" = "JETON ENREGISTRÉ · LAISSEZ VIDE POUR LE CONSERVER";
@@ -2253,6 +2266,7 @@
 "Save to" = "Enregistrer dans";
 "Save trimmed copy" = "Enregistrer la copie élaguée";
 "Save with background" = "Enregistrer avec l’arrière-plan";
+"Save without background" = "Enregistrer sans arrière-plan";
 "Saved %@ files. %@ links could not be downloaded." = "%@ fichiers enregistrés. %@ liens n’ont pas pu être téléchargés.";
 "Saved %@ files. %lld links could not be downloaded." = "%@ fichiers enregistrés. %lld liens n’ont pas pu être téléchargés.";
 "Saved %@ new files. Originals kept." = "%@ nouveaux fichiers enregistrés. Originaux conservés.";
@@ -2409,6 +2423,8 @@
 "THE ARCHIVE ENTRY LEAVES ITS DESTINATION." = "L’ENTRÉE DE L’ARCHIVE SORT DE SA DESTINATION.";
 "THE ARCHIVE EXPANDS BEYOND THE 20 GB SAFETY LIMIT." = "UNE FOIS DÉCOMPRESSÉE, L’ARCHIVE DÉPASSE LA LIMITE DE SÉCURITÉ DE 20 GO.";
 "THE ARCHIVE HAS TOO MANY ENTRIES (100,000 LIMIT)." = "L’ARCHIVE CONTIENT TROP D’ENTRÉES (LIMITE DE 100 000).";
+"THE BACKGROUND COULD NOT BE REMOVED." = "L’ARRIÈRE-PLAN N’A PAS PU ÊTRE RETIRÉ.";
+"THE CHECKERBOARD IS EMPTY. IT IS NOT PART OF THE SAVED FILE." = "LE DAMIER EST VIDE. IL NE FAIT PAS PARTIE DU FICHIER ENREGISTRÉ.";
 "THE CLIPPING EXCEEDS 200 MB." = "LE FRAGMENT DÉPASSE 200 MO.";
 "THE CLIPPING HAS NO READABLE TEXT. INCLUDE ITS ORIGINAL RESOURCE FORK/APPLEDOUBLE SIDECAR, OR PASTE ITS TEXT INTO HOPUS." = "LE FRAGMENT NE CONTIENT AUCUN TEXTE LISIBLE. INCLUEZ SON FICHIER ANNEXE D’ORIGINE (RESOURCE FORK/APPLEDOUBLE) OU COLLEZ SON TEXTE DANS HOPUS.";
 "THE DOCUMENT HAS NO EDITABLE BODY." = "LE DOCUMENT N’A PAS DE CORPS MODIFIABLE.";
@@ -2447,6 +2463,7 @@
 "THE SITE IS LIMITING REQUESTS. WAIT A LITTLE AND TRY AGAIN." = "LE SITE LIMITE LES REQUÊTES. PATIENTEZ UN PEU, PUIS RÉESSAYEZ.";
 "THE SITE RETURNED TOO MUCH METADATA. TRY AN INDIVIDUAL MEDIA LINK." = "LE SITE A RENVOYÉ TROP DE MÉTADONNÉES. ESSAYEZ LE LIEN D’UN SEUL MÉDIA.";
 "THE START AND END TIMES MUST DESCRIBE A NONEMPTY RANGE INSIDE THE MEDIA." = "LE DÉBUT ET LA FIN DOIVENT DÉLIMITER UNE PLAGE NON VIDE À L’INTÉRIEUR DU MÉDIA.";
+"THE SUBJECT STAYS. EMPTY AREAS STAY TRANSPARENT, AND THE COPY IS SAVED AS PNG." = "LE SUJET RESTE. LES ZONES VIDES RESTENT TRANSPARENTES ET LA COPIE EST ENREGISTRÉE EN PNG.";
 "THE TEXT CLIPPING'S RESOURCE DATA IS DAMAGED." = "LES DONNÉES DE RESSOURCE DU FRAGMENT SONT ENDOMMAGÉES.";
 "THE UPDATE DOES NOT CONTAIN HOPUS." = "LA MISE À JOUR NE CONTIENT PAS HOPUS.";
 "THE UPDATE NEEDS ANOTHER TRY" = "LA MISE À JOUR DOIT ÊTRE RELANCÉE";
@@ -2566,6 +2583,8 @@
 "The archive entry leaves its destination." = "L’entrée de l’archive sort de sa destination.";
 "The archive expands beyond the 20 GB safety limit." = "Une fois décompressée, l’archive dépasse la limite de sécurité de 20 Go.";
 "The archive has too many entries (100,000 limit)." = "L’archive contient trop d’entrées (limite de 100 000).";
+"The background could not be removed." = "L’arrière-plan n’a pas pu être retiré.";
+"The checkerboard is empty. It is not part of the saved file." = "Le damier est vide. Il ne fait pas partie du fichier enregistré.";
 "The clipping exceeds 200 MB." = "Le fragment dépasse 200 Mo.";
 "The clipping has no readable text. Include its original resource fork/AppleDouble sidecar, or paste its text into Hopus." = "Le fragment ne contient aucun texte lisible. Incluez son fichier annexe d’origine (resource fork/AppleDouble) ou collez son texte dans Hopus.";
 "The crop rectangle must fit completely inside the %@ × %@ pixel image." = "Le rectangle de recadrage doit tenir entièrement dans l’image de %@ × %@ pixels.";
@@ -2611,6 +2630,7 @@
 "The site is limiting requests. Wait a little and try again." = "Le site limite les requêtes. Patientez un peu, puis réessayez.";
 "The site returned too much metadata. Try an individual media link." = "Le site a renvoyé trop de métadonnées. Essayez le lien d’un seul média.";
 "The start and end times must describe a nonempty range inside the media." = "Le début et la fin doivent délimiter une plage non vide à l’intérieur du média.";
+"The subject stays. Empty areas stay transparent, and the copy is saved as PNG." = "Le sujet reste. Les zones vides restent transparentes et la copie est enregistrée en PNG.";
 "The text clipping's resource data is damaged." = "Les données de ressource du fragment sont endommagées.";
 "The text encoding of %@ could not be read." = "L’encodage du texte de %@ n’a pas pu être lu.";
 "The text encoding of %lld could not be read." = "L’encodage du texte de %lld n’a pas pu être lu.";

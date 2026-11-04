@@ -124,20 +124,215 @@ public enum ImageEngine {
                 case .annotateImage: image=try annotate(image,options:options); suffix=" - Annotated"
                 case .redactImage: image=try redact(image,options:options); suffix=" - Redacted"
                 case .frameImage: image=try frame(image,options:options); suffix=" - Framed"
+                case .removeBackground: image=try removeBackground(image); suffix=" - No Background"
                 default: throw HopusError.unsupported("\(kind.title) is not an image operation.")
                 }
-                let output=OutputFiles.unique(for:input,extension:kind == .annotateImage ? "png" : ext,suffix:suffix,directory:options.outputDirectory)
+                let output=OutputFiles.unique(for:input,extension:kind == .annotateImage || kind == .removeBackground ? "png" : ext,suffix:suffix,directory:options.outputDirectory)
                 try write(image,to:output,quality:options.quality)
                 outputs.append(output)
-            } catch HopusError.invalidInput(let message) where kind == .cropImage || kind == .redactImage {
+            } catch HopusError.invalidInput(let message) where kind == .cropImage || kind == .redactImage || kind == .removeBackground {
                 throw HopusError.invalidInput("\(input.lastPathComponent): \(message)")
             } catch HopusError.cancelled {
                 throw HopusError.cancelled
-            } catch let error where kind == .cropImage || kind == .redactImage {
+            } catch let error where kind == .cropImage || kind == .redactImage || kind == .removeBackground {
                 throw HopusError.failed("\(input.lastPathComponent): \(error.localizedDescription)")
             }
         }
         return outputs
+    }
+
+    /// Keeps the subject and writes the rest as empty pixels. The mask is measured
+    /// on a smaller copy when the photo is large, then applied to the original pixels.
+    /// Edge pixels are pulled in and recolored so the old background does not leave a rim.
+    public static func removeBackground(_ image: CGImage) throws -> CGImage {
+        guard #available(macOS 14, *) else { throw HopusError.unsupported("Remove Background needs macOS 14 or later.") }
+        let longest=max(image.width,image.height)
+        let analysis:CGImage
+        if longest>2048 {
+            let scale=2048/Double(longest)
+            analysis=try resized(image,width:max(1,Int((Double(image.width)*scale).rounded())),height:max(1,Int((Double(image.height)*scale).rounded())))
+        } else { analysis=image }
+        let request=VNGenerateForegroundInstanceMaskRequest()
+        let handler=VNImageRequestHandler(cgImage:analysis,options:[:])
+        try handler.perform([request])
+        guard let observation=request.results?.first,!observation.allInstances.isEmpty else { throw HopusError.failed("No subject was found in this image.") }
+        let maskBuffer=try observation.generateScaledMaskForImage(forInstances:observation.allInstances,from:handler)
+        var mask=CIImage(cvPixelBuffer:maskBuffer)
+        let extent=CGRect(x:0,y:0,width:image.width,height:image.height)
+        guard mask.extent.width>0,mask.extent.height>0 else { throw HopusError.failed("The background could not be removed.") }
+        if mask.extent.size != extent.size {
+            mask=mask.transformed(by:CGAffineTransform(scaleX:extent.width/mask.extent.width,y:extent.height/mask.extent.height))
+        }
+        guard var maskImage=imageContext.createCGImage(mask,from:extent) else { throw HopusError.failed("The background could not be removed.") }
+        if maskImage.width != image.width || maskImage.height != image.height { maskImage=try resized(maskImage,width:image.width,height:image.height) }
+        return try smoothedCutout(image,mask:maskImage)
+    }
+
+    /// Drops the background-tinted rim, then fills the remaining soft edge with the subject's own color.
+    private static func smoothedCutout(_ image: CGImage, mask maskImage: CGImage) throws -> CGImage {
+        let width=image.width,height=image.height
+        guard width>0,height>0,maskImage.width==width,maskImage.height==height else { throw HopusError.failed("The background could not be removed.") }
+        let source=try straightPixels(image)
+        let maskPixels=try straightPixels(maskImage)
+        let count=width*height
+        var mask=[UInt8](repeating:0,count:count)
+        var solid=[UInt8](repeating:0,count:count)
+        for index in 0..<count {
+            let value=maskPixels[index*4]
+            mask[index]=value
+            if value>=248 { solid[index]=1 }
+        }
+        let longest=max(width,height)
+        let radius=max(2,min(4,Int((Double(longest)/2048*2).rounded(.up))))
+        var alpha=minimum(mask,width:width,height:height,radius:radius)
+        alpha=blurredAlpha(alpha,width:width,height:height)
+        var backgroundRed=0,backgroundGreen=0,backgroundBlue=0,backgroundCount=0
+        for index in 0..<count where mask[index]<12 {
+            backgroundRed+=Int(source[index*4]);backgroundGreen+=Int(source[index*4+1]);backgroundBlue+=Int(source[index*4+2]);backgroundCount+=1
+        }
+        if backgroundCount>=64 {
+            backgroundRed/=backgroundCount;backgroundGreen/=backgroundCount;backgroundBlue/=backgroundCount
+            for index in 0..<count where mask[index]>0 && mask[index]<140 && alpha[index]>0 {
+                let distance=max(abs(Int(source[index*4])-backgroundRed),abs(Int(source[index*4+1])-backgroundGreen),abs(Int(source[index*4+2])-backgroundBlue))
+                if distance<16 { alpha[index]=0 }
+            }
+        }
+        let colors=try interiorColors(source:source,solid:solid,width:width,height:height)
+        var output=[UInt8](repeating:0,count:count*4)
+        for index in 0..<count {
+            if index & 0x3FFF == 0 { try Task.checkCancellation() }
+            let coverage=Int(alpha[index])
+            guard coverage>0 else { continue }
+            let packed=colors[index]
+            output[index*4]=UInt8(Int((packed >> 16) & 0xFF)*coverage/255)
+            output[index*4+1]=UInt8(Int((packed >> 8) & 0xFF)*coverage/255)
+            output[index*4+2]=UInt8(Int(packed & 0xFF)*coverage/255)
+            output[index*4+3]=UInt8(coverage)
+        }
+        guard output.contains(where:{$0>16}) else { throw HopusError.failed("No subject was found in this image.") }
+        return try cgImage(fromPremultiplied:output,width:width,height:height)
+    }
+
+    private static func straightPixels(_ image: CGImage) throws -> [UInt8] {
+        let width=image.width,height=image.height
+        var bytes=[UInt8](repeating:0,count:width*height*4)
+        let info=CGBitmapInfo(rawValue:CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue)
+        let drew=bytes.withUnsafeMutableBytes { raw in
+            guard let ctx=CGContext(data:raw.baseAddress,width:width,height:height,bitsPerComponent:8,bytesPerRow:width*4,space:imageColorSpace,bitmapInfo:info.rawValue) else { return false }
+            ctx.interpolationQuality = .high
+            ctx.draw(image,in:CGRect(x:0,y:0,width:width,height:height))
+            return true
+        }
+        guard drew else { throw HopusError.failed("The background could not be removed.") }
+        for index in stride(from:0,to:bytes.count,by:4) {
+            let alpha=Int(bytes[index+3])
+            if alpha==0 { bytes[index]=0;bytes[index+1]=0;bytes[index+2]=0 }
+            else if alpha<255 {
+                bytes[index]=UInt8(min(255,Int(bytes[index])*255/alpha))
+                bytes[index+1]=UInt8(min(255,Int(bytes[index+1])*255/alpha))
+                bytes[index+2]=UInt8(min(255,Int(bytes[index+2])*255/alpha))
+            }
+        }
+        return bytes
+    }
+
+    private static func minimum(_ pixels:[UInt8],width:Int,height:Int,radius:Int)->[UInt8] {
+        var horizontal=[UInt8](repeating:0,count:width*height)
+        var vertical=[UInt8](repeating:0,count:width*height)
+        for y in 0..<height {
+            for x in 0..<width {
+                var value=255
+                let start=max(0,x-radius),end=min(width-1,x+radius),row=y*width
+                for sample in start...end { value=min(value,Int(pixels[row+sample])) }
+                horizontal[row+x]=UInt8(value)
+            }
+        }
+        for y in 0..<height {
+            for x in 0..<width {
+                var value=255
+                let start=max(0,y-radius),end=min(height-1,y+radius)
+                for sample in start...end { value=min(value,Int(horizontal[sample*width+x])) }
+                vertical[y*width+x]=UInt8(value)
+            }
+        }
+        return vertical
+    }
+
+    private static func blurredAlpha(_ pixels:[UInt8],width:Int,height:Int)->[UInt8] {
+        var output=[UInt8](repeating:0,count:width*height)
+        for y in 0..<height {
+            for x in 0..<width {
+                var total=0,weight=0
+                for dy in -1...1 {
+                    let yy=y+dy
+                    guard yy>=0,yy<height else { continue }
+                    for dx in -1...1 {
+                        let xx=x+dx
+                        guard xx>=0,xx<width else { continue }
+                        let sampleWeight=dx==0 && dy==0 ? 4:dx==0 || dy==0 ? 2:1
+                        total+=Int(pixels[yy*width+xx])*sampleWeight
+                        weight+=sampleWeight
+                    }
+                }
+                output[y*width+x]=UInt8(total/max(1,weight))
+            }
+        }
+        return output
+    }
+
+    /// One forward pass and one backward pass copy each edge pixel's color from the nearest solid subject pixel.
+    private static func interiorColors(source:[UInt8],solid:[UInt8],width:Int,height:Int) throws -> [UInt32] {
+        let count=width*height
+        var color=[UInt32](repeating:0,count:count)
+        var distance=[UInt16](repeating:.max,count:count)
+        for index in 0..<count where solid[index]==1 {
+            distance[index]=0
+            color[index]=(UInt32(source[index*4])<<16) | (UInt32(source[index*4+1])<<8) | UInt32(source[index*4+2])
+        }
+        func pull(_ index:Int,from neighbor:Int) {
+            let next=distance[neighbor]
+            guard next != UInt16.max else { return }
+            let stepped=next &+ 1
+            guard stepped>next,stepped<distance[index] else { return }
+            distance[index]=stepped
+            color[index]=color[neighbor]
+        }
+        for y in 0..<height {
+            if y & 63 == 0 { try Task.checkCancellation() }
+            let row=y*width
+            for x in 0..<width {
+                let index=row+x
+                if x>0 { pull(index,from:index-1) }
+                if y>0 { pull(index,from:index-width) }
+            }
+        }
+        for y in stride(from:height-1,through:0,by:-1) {
+            if y & 63 == 0 { try Task.checkCancellation() }
+            let row=y*width
+            for x in stride(from:width-1,through:0,by:-1) {
+                let index=row+x
+                if x+1<width { pull(index,from:index+1) }
+                if y+1<height { pull(index,from:index+width) }
+            }
+        }
+        for index in 0..<count where distance[index] == UInt16.max {
+            color[index]=(UInt32(source[index*4])<<16) | (UInt32(source[index*4+1])<<8) | UInt32(source[index*4+2])
+        }
+        return color
+    }
+
+    /// Shrinks a photo so the preview can finish quickly. The saved file still uses every original pixel.
+    public static func fitted(_ image: CGImage, longest maxEdge: Int) throws -> CGImage {
+        let longest=max(image.width,image.height)
+        guard maxEdge>0,longest>maxEdge else { return image }
+        let scale=Double(maxEdge)/Double(longest)
+        return try resized(image,width:max(1,Int((Double(image.width)*scale).rounded())),height:max(1,Int((Double(image.height)*scale).rounded())))
+    }
+
+    private static func cgImage(fromPremultiplied bytes:[UInt8],width:Int,height:Int) throws -> CGImage {
+        let info=CGBitmapInfo(rawValue:CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue)
+        guard let provider=CGDataProvider(data:Data(bytes) as CFData),let image=CGImage(width:width,height:height,bitsPerComponent:8,bitsPerPixel:32,bytesPerRow:width*4,space:imageColorSpace,bitmapInfo:info,provider:provider,decode:nil,shouldInterpolate:true,intent:.defaultIntent) else { throw HopusError.failed("The background could not be removed.") }
+        return image
     }
 
     public static func resized(_ image: CGImage, width: Int, height: Int) throws -> CGImage {
@@ -154,6 +349,7 @@ public enum ImageEngine {
         case .annotateImage: return try annotate(image,options:options)
         case .redactImage: return try redact(image,options:options)
         case .frameImage: return try frame(image,options:options)
+        case .removeBackground: return try removeBackground(image)
         case .cropImage:
             guard let crop=options.crop else { throw HopusError.invalidInput("Choose a crop rectangle.") }
             guard [crop.x,crop.y,crop.width,crop.height].allSatisfy(\.isFinite) else { throw HopusError.invalidInput("Crop coordinates must be finite.") }

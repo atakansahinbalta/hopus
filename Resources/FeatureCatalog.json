@@ -377,7 +377,8 @@
       "annotateImage",
       "frameImage",
       "cropImage",
-      "redactImage"
+      "redactImage",
+      "removeBackground"
     ],
     "png": [
       "compress",
@@ -386,7 +387,8 @@
       "annotateImage",
       "frameImage",
       "cropImage",
-      "redactImage"
+      "redactImage",
+      "removeBackground"
     ],
     "webp": [
       "compress",
@@ -395,7 +397,8 @@
       "annotateImage",
       "frameImage",
       "cropImage",
-      "redactImage"
+      "redactImage",
+      "removeBackground"
     ],
     "heic": [
       "compress",
@@ -404,7 +407,8 @@
       "annotateImage",
       "frameImage",
       "cropImage",
-      "redactImage"
+      "redactImage",
+      "removeBackground"
     ],
     "tiff": [
       "compress",
@@ -413,7 +417,8 @@
       "annotateImage",
       "frameImage",
       "cropImage",
-      "redactImage"
+      "redactImage",
+      "removeBackground"
     ],
     "svg": [],
     "avif": [],
@@ -540,35 +545,40 @@
       "removeMetadata",
       "cropImage",
       "createPDF",
-      "createCollage"
+      "createCollage",
+      "removeBackground"
     ],
     "png": [
       "compress",
       "removeMetadata",
       "cropImage",
       "createPDF",
-      "createCollage"
+      "createCollage",
+      "removeBackground"
     ],
     "webp": [
       "compress",
       "removeMetadata",
       "cropImage",
       "createPDF",
-      "createCollage"
+      "createCollage",
+      "removeBackground"
     ],
     "heic": [
       "compress",
       "removeMetadata",
       "cropImage",
       "createPDF",
-      "createCollage"
+      "createCollage",
+      "removeBackground"
     ],
     "tiff": [
       "compress",
       "removeMetadata",
       "cropImage",
       "createPDF",
-      "createCollage"
+      "createCollage",
+      "removeBackground"
     ],
     "svg": [
       "createPDF",
@@ -688,7 +698,8 @@
     "redactImage": "Redact Photo",
     "redactVideo": "Redact Video",
     "redactAudio": "Bleep Audio",
-    "readQRCode": "Read QR Codes"
+    "readQRCode": "Read QR Codes",
+    "removeBackground": "Remove BG"
   },
   "fileActions": [
     "share",

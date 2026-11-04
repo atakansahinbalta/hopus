@@ -22,7 +22,7 @@ Home, the tools wheel, image crop, and the trim range. The captures use generate
 
 ## Download and use
 
-- **[macOS ZIP · Apple Silicon, macOS 13+](https://github.com/atakansahinbalta/hopus/releases/latest/download/Hopus-macOS-arm64.zip):** extract, move Hopus.app to your Applications folder and open it. The full macOS catalog has 27 tools, 46 input formats and 276 conversion routes. If macOS says the app is from an unidentified developer, right-click Hopus and choose Open.
+- **[macOS ZIP · Apple Silicon, macOS 13+](https://github.com/atakansahinbalta/hopus/releases/latest/download/Hopus-macOS-arm64.zip):** extract, move Hopus.app to your Applications folder and open it. The full macOS catalog has 28 tools, 46 input formats and 276 conversion routes. If macOS says the app is from an unidentified developer, right-click Hopus and choose Open.
 - **Windows:** source and build notes are in [windows/README.md](windows/README.md). This release publishes the Mac app.
 
 First launch guides you through **Finish setup → Download missing tools** for hash-verified downloads directly from upstream. Media and Office tools install in sequence; existing tools are kept, and cancelled or failed setup can be retried. **Tools ready** appears only when both groups are available. Core native image/PDF features work immediately. [Exact versions, hashes and licenses](docs/dependencies.md).

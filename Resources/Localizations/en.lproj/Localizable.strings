@@ -1419,6 +1419,7 @@
 "LIBRARY IS TOO LARGE." = "LIBRARY IS TOO LARGE.";
 "LIBREOFFICE 26.8.1 ENABLES OFFICE DOCUMENT CONVERSIONS. A 285 MB DOWNLOAD; ABOUT 1 GB INSTALLED. MPL 2.0 AND ITS INCLUDED THIRD-PARTY LICENSES." = "LIBREOFFICE 26.8.1 ENABLES OFFICE DOCUMENT CONVERSIONS. A 285 MB DOWNLOAD; ABOUT 1 GB INSTALLED. MPL 2.0 AND ITS INCLUDED THIRD-PARTY LICENSES.";
 "LIBREOFFICE 26.8.1 ENABLES OFFICE DOCUMENT CONVERSIONS. APPROXIMATELY 360 MB TO DOWNLOAD. MPL 2.0 AND ITS INCLUDED THIRD-PARTY LICENSES." = "LIBREOFFICE 26.8.1 ENABLES OFFICE DOCUMENT CONVERSIONS. APPROXIMATELY 360 MB TO DOWNLOAD. MPL 2.0 AND ITS INCLUDED THIRD-PARTY LICENSES.";
+"LIFT THE SUBJECT. KEEP A TRANSPARENT PNG." = "LIFT THE SUBJECT. KEEP A TRANSPARENT PNG.";
 "LIGHT" = "LIGHT";
 "LIGHTING" = "LIGHTING";
 "LINE" = "LINE";
@@ -1451,6 +1452,7 @@
 "Library is too large." = "Library is too large.";
 "LibreOffice 26.8.1 enables Office document conversions. A 285 MB download; about 1 GB installed. MPL 2.0 and its included third-party licenses." = "LibreOffice 26.8.1 enables Office document conversions. A 285 MB download; about 1 GB installed. MPL 2.0 and its included third-party licenses.";
 "LibreOffice 26.8.1 enables Office document conversions. Approximately 360 MB to download. MPL 2.0 and its included third-party licenses." = "LibreOffice 26.8.1 enables Office document conversions. Approximately 360 MB to download. MPL 2.0 and its included third-party licenses.";
+"Lift the subject. Keep a transparent PNG." = "Lift the subject. Keep a transparent PNG.";
 "Light" = "Light";
 "Lighting" = "Lighting";
 "Line" = "Line";
@@ -1585,6 +1587,7 @@
 "NO QR CODES FOUND. TRY A LARGER OR SHARPER IMAGE." = "NO QR CODES FOUND. TRY A LARGER OR SHARPER IMAGE.";
 "NO QR CODES THIS TIME." = "NO QR CODES THIS TIME.";
 "NO READABLE TEXT WAS FOUND IN THIS TEXT CLIPPING." = "NO READABLE TEXT WAS FOUND IN THIS TEXT CLIPPING.";
+"NO SUBJECT WAS FOUND IN THIS IMAGE." = "NO SUBJECT WAS FOUND IN THIS IMAGE.";
 "NO TEXT COULD BE EXTRACTED OR RECOGNIZED IN THIS PDF." = "NO TEXT COULD BE EXTRACTED OR RECOGNIZED IN THIS PDF.";
 "NO TIMED SUBTITLE CUES WERE FOUND IN THIS FILE." = "NO TIMED SUBTITLE CUES WERE FOUND IN THIS FILE.";
 "NO TIMED SUBTITLE CUES WERE FOUND." = "NO TIMED SUBTITLE CUES WERE FOUND.";
@@ -1633,6 +1636,7 @@
 "No output was produced." = "No output was produced.";
 "No public downloadable media found. Some sites require sign-in or do not expose downloadable media." = "No public downloadable media found. Some sites require sign-in or do not expose downloadable media.";
 "No readable text was found in this text clipping." = "No readable text was found in this text clipping.";
+"No subject was found in this image." = "No subject was found in this image.";
 "No text could be extracted or recognized in this PDF." = "No text could be extracted or recognized in this PDF.";
 "No timed subtitle cues were found in this file." = "No timed subtitle cues were found in this file.";
 "No timed subtitle cues were found." = "No timed subtitle cues were found.";
@@ -1960,6 +1964,9 @@
 "REMOVE ALL METADATA" = "REMOVE ALL METADATA";
 "REMOVE AUDIO" = "REMOVE AUDIO";
 "REMOVE BACKGROUND" = "REMOVE BACKGROUND";
+"REMOVE BACKGROUND IS AVAILABLE IN THE MAC APP." = "REMOVE BACKGROUND IS AVAILABLE IN THE MAC APP.";
+"REMOVE BACKGROUND NEEDS MACOS 14 OR LATER." = "REMOVE BACKGROUND NEEDS MACOS 14 OR LATER.";
+"REMOVE BG" = "REMOVE BG";
 "REMOVE CLIPS (NUMBERS; SEPARATED BY SEMICOLONS)" = "REMOVE CLIPS (NUMBERS; SEPARATED BY SEMICOLONS)";
 "REMOVE FROM FLOAT" = "REMOVE FROM FLOAT";
 "REMOVE FROM SELECTION" = "REMOVE FROM SELECTION";
@@ -1969,6 +1976,7 @@
 "REMOVE SELECTED RANGE" = "REMOVE SELECTED RANGE";
 "REMOVE SILENCE AT THE BEGINNING AND END" = "REMOVE SILENCE AT THE BEGINNING AND END";
 "REMOVE SILENCE FROM BEGINNING AND END" = "REMOVE SILENCE FROM BEGINNING AND END";
+"REMOVING BACKGROUND…" = "REMOVING BACKGROUND…";
 "RENDERED PAGES EXCEED 512 MB. CHOOSE A LOWER DPI OR SPLIT THE PDF FIRST." = "RENDERED PAGES EXCEED 512 MB. CHOOSE A LOWER DPI OR SPLIT THE PDF FIRST.";
 "REPLACE SELECTED AUDIO WITH" = "REPLACE SELECTED AUDIO WITH";
 "REPORT SAVED." = "REPORT SAVED.";
@@ -2031,7 +2039,10 @@
 "Remove %lld from selection" = "Remove %lld from selection";
 "Remove All" = "Remove All";
 "Remove Audio" = "Remove Audio";
+"Remove BG" = "Remove BG";
 "Remove Background" = "Remove Background";
+"Remove Background is available in the Mac app." = "Remove Background is available in the Mac app.";
+"Remove Background needs macOS 14 or later." = "Remove Background needs macOS 14 or later.";
 "Remove Image" = "Remove Image";
 "Remove Metadata" = "Remove Metadata";
 "Remove all metadata" = "Remove all metadata";
@@ -2042,6 +2053,7 @@
 "Remove selected range" = "Remove selected range";
 "Remove silence at the beginning and end" = "Remove silence at the beginning and end";
 "Remove silence from beginning and end" = "Remove silence from beginning and end";
+"Removing background…" = "Removing background…";
 "Rendered pages exceed 512 MB. Choose a lower DPI or split the PDF first." = "Rendered pages exceed 512 MB. Choose a lower DPI or split the PDF first.";
 "Rendering page %@" = "Rendering page %@";
 "Rendering page %lld" = "Rendering page %lld";
@@ -2102,6 +2114,7 @@
 "SAVE TO" = "SAVE TO";
 "SAVE TRIMMED COPY" = "SAVE TRIMMED COPY";
 "SAVE WITH BACKGROUND" = "SAVE WITH BACKGROUND";
+"SAVE WITHOUT BACKGROUND" = "SAVE WITHOUT BACKGROUND";
 "SAVED 1 NEW FILE. ORIGINALS KEPT." = "SAVED 1 NEW FILE. ORIGINALS KEPT.";
 "SAVED IN POST ORDER IN A NEW INSTAGRAM FOLDER." = "SAVED IN POST ORDER IN A NEW INSTAGRAM FOLDER.";
 "SAVED TOKEN · LEAVE BLANK TO KEEP IT" = "SAVED TOKEN · LEAVE BLANK TO KEEP IT";
@@ -2253,6 +2266,7 @@
 "Save to" = "Save to";
 "Save trimmed copy" = "Save trimmed copy";
 "Save with background" = "Save with background";
+"Save without background" = "Save without background";
 "Saved %@ files. %@ links could not be downloaded." = "Saved %@ files. %@ links could not be downloaded.";
 "Saved %@ files. %lld links could not be downloaded." = "Saved %@ files. %lld links could not be downloaded.";
 "Saved %@ new files. Originals kept." = "Saved %@ new files. Originals kept.";
@@ -2409,6 +2423,8 @@
 "THE ARCHIVE ENTRY LEAVES ITS DESTINATION." = "THE ARCHIVE ENTRY LEAVES ITS DESTINATION.";
 "THE ARCHIVE EXPANDS BEYOND THE 20 GB SAFETY LIMIT." = "THE ARCHIVE EXPANDS BEYOND THE 20 GB SAFETY LIMIT.";
 "THE ARCHIVE HAS TOO MANY ENTRIES (100,000 LIMIT)." = "THE ARCHIVE HAS TOO MANY ENTRIES (100,000 LIMIT).";
+"THE BACKGROUND COULD NOT BE REMOVED." = "THE BACKGROUND COULD NOT BE REMOVED.";
+"THE CHECKERBOARD IS EMPTY. IT IS NOT PART OF THE SAVED FILE." = "THE CHECKERBOARD IS EMPTY. IT IS NOT PART OF THE SAVED FILE.";
 "THE CLIPPING EXCEEDS 200 MB." = "THE CLIPPING EXCEEDS 200 MB.";
 "THE CLIPPING HAS NO READABLE TEXT. INCLUDE ITS ORIGINAL RESOURCE FORK/APPLEDOUBLE SIDECAR, OR PASTE ITS TEXT INTO HOPUS." = "THE CLIPPING HAS NO READABLE TEXT. INCLUDE ITS ORIGINAL RESOURCE FORK/APPLEDOUBLE SIDECAR, OR PASTE ITS TEXT INTO HOPUS.";
 "THE DOCUMENT HAS NO EDITABLE BODY." = "THE DOCUMENT HAS NO EDITABLE BODY.";
@@ -2447,6 +2463,7 @@
 "THE SITE IS LIMITING REQUESTS. WAIT A LITTLE AND TRY AGAIN." = "THE SITE IS LIMITING REQUESTS. WAIT A LITTLE AND TRY AGAIN.";
 "THE SITE RETURNED TOO MUCH METADATA. TRY AN INDIVIDUAL MEDIA LINK." = "THE SITE RETURNED TOO MUCH METADATA. TRY AN INDIVIDUAL MEDIA LINK.";
 "THE START AND END TIMES MUST DESCRIBE A NONEMPTY RANGE INSIDE THE MEDIA." = "THE START AND END TIMES MUST DESCRIBE A NONEMPTY RANGE INSIDE THE MEDIA.";
+"THE SUBJECT STAYS. EMPTY AREAS STAY TRANSPARENT, AND THE COPY IS SAVED AS PNG." = "THE SUBJECT STAYS. EMPTY AREAS STAY TRANSPARENT, AND THE COPY IS SAVED AS PNG.";
 "THE TEXT CLIPPING'S RESOURCE DATA IS DAMAGED." = "THE TEXT CLIPPING'S RESOURCE DATA IS DAMAGED.";
 "THE UPDATE DOES NOT CONTAIN HOPUS." = "THE UPDATE DOES NOT CONTAIN HOPUS.";
 "THE UPDATE NEEDS ANOTHER TRY" = "THE UPDATE NEEDS ANOTHER TRY";
@@ -2566,6 +2583,8 @@
 "The archive entry leaves its destination." = "The archive entry leaves its destination.";
 "The archive expands beyond the 20 GB safety limit." = "The archive expands beyond the 20 GB safety limit.";
 "The archive has too many entries (100,000 limit)." = "The archive has too many entries (100,000 limit).";
+"The background could not be removed." = "The background could not be removed.";
+"The checkerboard is empty. It is not part of the saved file." = "The checkerboard is empty. It is not part of the saved file.";
 "The clipping exceeds 200 MB." = "The clipping exceeds 200 MB.";
 "The clipping has no readable text. Include its original resource fork/AppleDouble sidecar, or paste its text into Hopus." = "The clipping has no readable text. Include its original resource fork/AppleDouble sidecar, or paste its text into Hopus.";
 "The crop rectangle must fit completely inside the %@ × %@ pixel image." = "The crop rectangle must fit completely inside the %@ × %@ pixel image.";
@@ -2611,6 +2630,7 @@
 "The site is limiting requests. Wait a little and try again." = "The site is limiting requests. Wait a little and try again.";
 "The site returned too much metadata. Try an individual media link." = "The site returned too much metadata. Try an individual media link.";
 "The start and end times must describe a nonempty range inside the media." = "The start and end times must describe a nonempty range inside the media.";
+"The subject stays. Empty areas stay transparent, and the copy is saved as PNG." = "The subject stays. Empty areas stay transparent, and the copy is saved as PNG.";
 "The text clipping's resource data is damaged." = "The text clipping's resource data is damaged.";
 "The text encoding of %@ could not be read." = "The text encoding of %@ could not be read.";
 "The text encoding of %lld could not be read." = "The text encoding of %lld could not be read.";

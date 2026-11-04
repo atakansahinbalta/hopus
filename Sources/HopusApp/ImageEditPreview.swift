@@ -21,6 +21,7 @@ struct ImageEditPreview:View {
     var annotationStyle:ImageAnnotation? = nil
     var annotationSource:CGImage? = nil
     var selectAnnotations=false
+    var showsTransparency=false
     let onRect:(EditRect)->Void
     @State private var target:DragTarget?
     @State private var startingRect:EditRect?
@@ -31,13 +32,41 @@ struct ImageEditPreview:View {
     @AppStorage("appLanguage") private var language="en"
     typealias Handle=CropSelectionGeometry.Handle
     enum DragTarget { case crop(Handle?),annotation(Int,Handle?),redaction(Int,Handle?),new,ignored }
+    private func transparencyGrid(origin:CGPoint,size:CGSize)->some View {
+        Canvas { context,_ in
+            let cell:CGFloat=14
+            let light=GraphicsContext.Shading.color(Color(white:0.93))
+            let dark=GraphicsContext.Shading.color(Color(white:0.78))
+            var column=0
+            var x=origin.x
+            while x<origin.x+size.width {
+                var row=0
+                var y=origin.y
+                let width=min(cell,origin.x+size.width-x)
+                while y<origin.y+size.height {
+                    let height=min(cell,origin.y+size.height-y)
+                    context.fill(Path(CGRect(x:x,y:y,width:width,height:height)),with:(column+row).isMultiple(of:2) ? dark:light)
+                    y+=cell
+                    row+=1
+                }
+                x+=cell
+                column+=1
+            }
+        }.allowsHitTesting(false)
+    }
     var body:some View {
         GeometryReader { geo in
             let ratio=min(geo.size.width/max(1,imageSize.width),geo.size.height/max(1,imageSize.height))*zoom
             let size=CGSize(width:imageSize.width*ratio,height:imageSize.height*ratio)
             let origin=CGPoint(x:(geo.size.width-size.width)/2,y:(geo.size.height-size.height)/2)
             ZStack(alignment:.topLeading) {
-                if let image { Image(nsImage:image).resizable().frame(width:size.width,height:size.height).position(x:geo.size.width/2,y:geo.size.height/2) }
+                if showsTransparency { transparencyGrid(origin:origin,size:size).frame(width:geo.size.width,height:geo.size.height) }
+                if let image {
+                    Group {
+                        if showsTransparency { TransparencyImage(image:image) }
+                        else { Image(nsImage:image).resizable() }
+                    }.frame(width:size.width,height:size.height).position(x:geo.size.width/2,y:geo.size.height/2).allowsHitTesting(false)
+                }
                 if let selection=cropEnabled ? (dragRect ?? crop):crop {
                     if cropEnabled {
                         Path { path in
@@ -148,5 +177,34 @@ struct ImageEditPreview:View {
             Rectangle().fill(fill ? color:.clear).overlay(Rectangle().stroke(color,lineWidth:1.5))
             if handles { ForEach(Handle.allCases,id:\.rawValue) { h in RoundedRectangle(cornerRadius:2).fill(Color.hopus).frame(width:8,height:8).offset(x:r.width*ratio*h.x-4,y:r.height*ratio*h.y-4) } }
         }.frame(width:max(1,r.width*ratio),height:max(1,r.height*ratio)).offset(x:origin.x+r.x*ratio,y:origin.y+r.y*ratio)
+    }
+}
+
+/// SwiftUI's Image(nsImage:) fills transparent pixels with white. Draw the cutout in AppKit so empty pixels stay empty.
+private struct TransparencyImage:NSViewRepresentable {
+    let image:NSImage
+    func makeNSView(context:Context)->CutoutImageView {
+        let view=CutoutImageView()
+        view.wantsLayer=true
+        view.layer?.isOpaque=false
+        view.layer?.backgroundColor=NSColor.clear.cgColor
+        view.image=image
+        return view
+    }
+    func updateNSView(_ view:CutoutImageView,context:Context) {
+        view.image=image
+    }
+}
+
+private final class CutoutImageView:NSView {
+    var image:NSImage? { didSet { needsDisplay=true } }
+    override var isOpaque:Bool { false }
+    override var isFlipped:Bool { true }
+    override func hitTest(_ point:NSPoint)->NSView? { nil }
+    override func draw(_ dirtyRect:NSRect) {
+        guard let image,let context=NSGraphicsContext.current?.cgContext else { return }
+        context.clear(bounds)
+        NSGraphicsContext.current?.imageInterpolation = .high
+        image.draw(in:bounds,from:.zero,operation:.sourceOver,fraction:1,respectFlipped:true,hints:nil)
     }
 }

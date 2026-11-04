@@ -78,6 +78,7 @@ public static partial class ImageEngine
                 // media tools on Windows, so without them a HEIC source keeps the previous PNG output.
                 case "redactImage":image=Redact(image,options.Redactions,options.RedactionStyle);if(ext=="heic"&&options.EncoderPath is null)ext="png";break;
                 case "convert":case "compress":case "removeMetadata":case "annotate":break;
+                case "removeBackground":throw new ArgumentException("Remove Background is available in the Mac app.");
                 default:throw new ArgumentException("Unsupported image tool.");
             }
             if(tool=="compress"&&!new[]{"jpg","png","heic","webp","avif"}.Contains(ext))ext="jpg";

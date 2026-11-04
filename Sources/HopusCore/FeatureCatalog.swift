@@ -77,6 +77,7 @@ public enum FeatureCatalog {
         .redactVideo: "eye.slash",
         .redactAudio: "waveform.badge.minus",
         .readQRCode: "qrcode.viewfinder",
+        .removeBackground: "person.crop.rectangle",
     ]
     public static let toolNames: [ToolKind: String] = [
         .compress: "Compress",
@@ -106,13 +107,14 @@ public enum FeatureCatalog {
         .redactVideo: "Redact Video",
         .redactAudio: "Bleep Audio",
         .readQRCode: "Read QR Codes",
+        .removeBackground: "Remove BG",
     ]
     public static let singleTools: [String: [ToolKind]] = [
-        "jpg": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage],
-        "png": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage],
-        "webp": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage],
-        "heic": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage],
-        "tiff": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage],
+        "jpg": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage, .removeBackground],
+        "png": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage, .removeBackground],
+        "webp": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage, .removeBackground],
+        "heic": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage, .removeBackground],
+        "tiff": [.compress, .removeMetadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage, .removeBackground],
         "svg": [],
         "avif": [],
         "bmp": [],
@@ -156,11 +158,11 @@ public enum FeatureCatalog {
         "rar": [.extractArchive],
     ]
     public static let multipleTools: [String: [ToolKind]] = [
-        "jpg": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage],
-        "png": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage],
-        "webp": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage],
-        "heic": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage],
-        "tiff": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage],
+        "jpg": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage, .removeBackground],
+        "png": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage, .removeBackground],
+        "webp": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage, .removeBackground],
+        "heic": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage, .removeBackground],
+        "tiff": [.compress, .removeMetadata, .cropImage, .createPDF, .createCollage, .removeBackground],
         "svg": [.createPDF, .createCollage],
         "avif": [],
         "bmp": [],
